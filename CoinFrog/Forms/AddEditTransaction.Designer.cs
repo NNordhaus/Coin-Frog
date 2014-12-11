@@ -40,6 +40,8 @@
             this.cmboStatus = new System.Windows.Forms.ComboBox();
             this.cbDateFinal = new System.Windows.Forms.CheckBox();
             this.cbAmountFinal = new System.Windows.Forms.CheckBox();
+            this.btnTextColor = new System.Windows.Forms.Button();
+            this.btnBackColor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -50,7 +52,7 @@
             this.btnCancel.Location = new System.Drawing.Point(487, 85);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 26);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -62,7 +64,7 @@
             this.btnSave.Location = new System.Drawing.Point(580, 85);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 26);
-            this.btnSave.TabIndex = 4;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -81,7 +83,7 @@
             this.txtDate.Location = new System.Drawing.Point(15, 25);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(100, 20);
-            this.txtDate.TabIndex = 7;
+            this.txtDate.TabIndex = 0;
             this.txtDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDate_KeyUp);
             // 
             // txtDescription
@@ -89,7 +91,7 @@
             this.txtDescription.Location = new System.Drawing.Point(127, 25);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(288, 20);
-            this.txtDescription.TabIndex = 9;
+            this.txtDescription.TabIndex = 2;
             // 
             // label2
             // 
@@ -106,7 +108,7 @@
             this.txtAmount.Location = new System.Drawing.Point(429, 25);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(103, 20);
-            this.txtAmount.TabIndex = 11;
+            this.txtAmount.TabIndex = 5;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
@@ -129,12 +131,11 @@
             // 
             // cmboStatus
             // 
-            this.cmboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmboStatus.FormattingEnabled = true;
             this.cmboStatus.Location = new System.Drawing.Point(542, 24);
             this.cmboStatus.Name = "cmboStatus";
             this.cmboStatus.Size = new System.Drawing.Size(121, 21);
-            this.cmboStatus.TabIndex = 13;
+            this.cmboStatus.TabIndex = 7;
             // 
             // cbDateFinal
             // 
@@ -142,7 +143,7 @@
             this.cbDateFinal.Location = new System.Drawing.Point(15, 51);
             this.cbDateFinal.Name = "cbDateFinal";
             this.cbDateFinal.Size = new System.Drawing.Size(90, 17);
-            this.cbDateFinal.TabIndex = 14;
+            this.cbDateFinal.TabIndex = 1;
             this.cbDateFinal.Text = "Date finalized";
             this.cbDateFinal.UseVisualStyleBackColor = true;
             // 
@@ -152,9 +153,27 @@
             this.cbAmountFinal.Location = new System.Drawing.Point(429, 51);
             this.cbAmountFinal.Name = "cbAmountFinal";
             this.cbAmountFinal.Size = new System.Drawing.Size(103, 17);
-            this.cbAmountFinal.TabIndex = 15;
+            this.cbAmountFinal.TabIndex = 6;
             this.cbAmountFinal.Text = "Amount finalized";
             this.cbAmountFinal.UseVisualStyleBackColor = true;
+            // 
+            // btnTextColor
+            // 
+            this.btnTextColor.Location = new System.Drawing.Point(259, 47);
+            this.btnTextColor.Name = "btnTextColor";
+            this.btnTextColor.Size = new System.Drawing.Size(75, 23);
+            this.btnTextColor.TabIndex = 3;
+            this.btnTextColor.Text = "Text Color";
+            this.btnTextColor.UseVisualStyleBackColor = true;
+            // 
+            // btnBackColor
+            // 
+            this.btnBackColor.Location = new System.Drawing.Point(340, 47);
+            this.btnBackColor.Name = "btnBackColor";
+            this.btnBackColor.Size = new System.Drawing.Size(75, 23);
+            this.btnBackColor.TabIndex = 4;
+            this.btnBackColor.Text = "Back Color";
+            this.btnBackColor.UseVisualStyleBackColor = true;
             // 
             // AddEditTransaction
             // 
@@ -163,6 +182,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(679, 123);
+            this.Controls.Add(this.btnBackColor);
+            this.Controls.Add(this.btnTextColor);
             this.Controls.Add(this.cbAmountFinal);
             this.Controls.Add(this.cbDateFinal);
             this.Controls.Add(this.cmboStatus);
@@ -177,6 +198,7 @@
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddEditTransaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Transaction";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,5 +219,7 @@
         private System.Windows.Forms.ComboBox cmboStatus;
         private System.Windows.Forms.CheckBox cbDateFinal;
         private System.Windows.Forms.CheckBox cbAmountFinal;
+        private System.Windows.Forms.Button btnTextColor;
+        private System.Windows.Forms.Button btnBackColor;
     }
 }

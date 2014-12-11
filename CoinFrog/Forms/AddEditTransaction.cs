@@ -59,9 +59,11 @@ namespace CoinFrog
             trans.Amount = amount;
             trans.Date = DateTime.Parse(txtDate.Text);
             trans.Description = txtDescription.Text;
+            //trans.DescriptionForColor = 
             //trans.DescriptionBackColor = 
             trans.AmountFinal = cbAmountFinal.Checked;
             trans.DateFinal = cbDateFinal.Checked;
+            trans.Status = cmboStatus.Text;
 
             this.Transaction = trans;
 
