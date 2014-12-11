@@ -17,7 +17,7 @@ namespace CoinFrog
         {
             InitializeComponent();
 
-            txtName = rt.Name;
+            txtName.Text = rt.Name;
         }
     }
 }
