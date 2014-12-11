@@ -11,37 +11,28 @@ namespace CoinFrog.Models
     {
         public string Name { get; set; }
 
-        public SortedList<DateTime, Transaction> Transactions { get; private set; }
-
-        private Random rnd = new Random(DateTime.Now.Millisecond * 13);
+        public List<Transaction> Transactions { get; private set; }
 
         public Ledger()
         {
-            Transactions = new SortedList<DateTime, Transaction>();
+            Transactions = new List<Transaction>();
         }
 
         public void AddTransactions(IEnumerable<Transaction> list)
         {
-            foreach (var t in list)
-            {
-                AddTransaction(t);
-            }
+            Transactions.AddRange(list);
         }
 
         public void AddTransaction(Transaction t)
         {
-            // Hack: add a random # of ticks so that transactions on the same date are not considered duplicates
-            // Should really use a sorted collection that can handle dupes but I didnt realize SortedList didn't allow dupes
-            // and didnt't feel like changing it after the fact.
-            t.Date = t.Date.AddTicks((UInt32)rnd.Next());
-            Transactions.Add(t.Date, t);
+            Transactions.Add(t);
         }
 
         public List<LedgerTransation> LedgerTransactions
         {
             get
             {
-                var ot = Transactions.Select(t => t.Value); // .OrderBy(t => t.Date)
+                var ot = Transactions.OrderBy(t => t.Date);
                 var lts = new List<LedgerTransation>(ot.Count());
                 
                 decimal balance = 0;
