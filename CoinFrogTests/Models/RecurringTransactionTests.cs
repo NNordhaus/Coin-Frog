@@ -11,6 +11,30 @@ namespace CoinFrogTests.Models
     public class RecurringTransactionTests
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GenerateToDate_Should_reject_a_StartDate_after_EndDate()
+        {
+            var sut = new RecurringTransaction();
+
+            var start = DateTime.Parse("2015-01-01");
+            var end = DateTime.Parse("2014-01-01");
+
+            sut.GenerateToDate(start, 1, EveryType.Day, null, end, null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void GenerateToDate_Should_reject_a_non_positive_num()
+        {
+            var sut = new RecurringTransaction();
+        
+            var start = DateTime.Parse("2014-01-01");
+            var end = DateTime.Parse("2015-01-01");
+        
+            sut.GenerateToDate(start, 0, EveryType.Day, null, end, null);
+        }
+
+        [TestMethod]
         public void GenerateToDate_Should_Generate_Correct_Number_Of_Transactions_For_Daily()
         {
             var sut = new RecurringTransaction();
@@ -60,7 +84,7 @@ namespace CoinFrogTests.Models
             var start = DateTime.Parse("2014-01-01");
             var end = DateTime.Parse("2014-12-31");
 
-            var baseTrans = new Transaction() { Amount = 175, Description = "Water bill", AmountFinal = false, Status = "To Do" };
+            var baseTrans = new Transaction() { Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" };
 
             var list = sut.GenerateToDate(start, 3, EveryType.Month, new List<int>() { 20 }, end, baseTrans);
 
@@ -75,7 +99,7 @@ namespace CoinFrogTests.Models
             var start = DateTime.Parse("2014-01-01");
             var end = DateTime.Parse("2014-12-31");
 
-            var baseTrans = new Transaction() { Amount = 175, Description = "Water bill", AmountFinal = false, Status = "To Do" };
+            var baseTrans = new Transaction() { Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" };
 
             var list = sut.GenerateToDate(start, 3, EveryType.Month, new List<int>() { 20 }, end, baseTrans);
 
@@ -114,6 +138,36 @@ namespace CoinFrogTests.Models
             Assert.AreEqual(15, list[1].Date.Day);
             Assert.AreEqual(1, list[22].Date.Day);
             Assert.AreEqual(15, list[23].Date.Day);
+        }
+
+        [TestMethod]
+        public void GenerateToDate_Should_Generate_5_Transactions_for_1_day_per_year_over_5_years()
+        {
+            var sut = new RecurringTransaction();
+
+            var start = DateTime.Parse("2010-01-01");
+            var end = DateTime.Parse("2014-12-31");
+
+            var baseTrans = new Transaction() { Amount = 199.65m, Description = "Tax Refund", AmountFinal = true, Status = "Projected" };
+
+            var list = sut.GenerateToDate(start, 1, EveryType.Year, new List<int>() { 15 }, end, baseTrans);
+
+            Assert.AreEqual(5, list.Count);
+        }
+
+        [TestMethod]
+        public void GenerateToDate_Should_Generate_10_Transactions_for_twice_a_year_over_5_years()
+        {
+            var sut = new RecurringTransaction();
+
+            var start = DateTime.Parse("2010-01-01");
+            var end = DateTime.Parse("2014-12-31");
+
+            var baseTrans = new Transaction() { Amount = -1200, Description = "Property Tax", AmountFinal = false, Status = "Auto Debit" };
+
+            var list = sut.GenerateToDate(start, 1, EveryType.Year, new List<int>() { 173, 356 }, end, baseTrans);
+
+            Assert.AreEqual(10, list.Count);
         }
     }
 }

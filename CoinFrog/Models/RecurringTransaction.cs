@@ -77,6 +77,28 @@ namespace CoinFrog.Models
 
                         break;
                     }
+                case EveryType.Year:
+                    {
+                        if (on == null || on.Count == 0)
+                        {
+                            throw new ArgumentException("must have at least one day of year selected", "on");
+                        }
+
+                        DateTime current = start;
+                        while (current <= end)
+                        {
+                            foreach (int dayOfYear in on)
+                            {
+                                var newTrans = trans.Clone();
+                                newTrans.Date = new DateTime(current.Year, 1, 1).AddDays(dayOfYear - 1);
+                                results.Add(newTrans);
+                            }
+
+                            current = current.AddYears(num);
+                        }
+
+                        break;
+                    }
             }
 
             return results;
