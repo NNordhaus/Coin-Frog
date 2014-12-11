@@ -55,11 +55,40 @@ namespace CoinFrog.Models
                         }
                         break;
                     }
+                case EveryType.Month:
+                    {
+                        if (on == null || on.Count == 0)
+                        {
+                            throw new ArgumentException("must have at least one day of month selected", "on");
+                        }
+
+                        DateTime current = start;
+
+                        // Add days until we are the at ON date
+                        //while(current.Day < on[0])
+                        //{
+                        //    current = current.AddDays(1);
+                        //}
+
+                        while (current <= end)
+                        {
+                            foreach (int dayOfMonth in on)
+                            {
+                                var newTrans = trans.Clone();
+                                newTrans.Date = new DateTime(current.Year, current.Month, dayOfMonth);
+                                results.Add(newTrans);
+                            }
+
+                            current = current.AddMonths(num);
+                        }
+
+                        break;
+                    }
             }
 
             return results;
         }
 
-        public System.Windows.Forms.TextBox Name { get; set; }
+        public string Name { get; set; }
     }
 }
