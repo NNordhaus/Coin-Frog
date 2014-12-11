@@ -27,10 +27,11 @@ namespace CoinFrog
             // add some test data
             ledger.AddTransactions(new List<Transaction>()
             {
-                new Transaction(){ Date = DateTime.Parse("1/1/2014"), Description = "Starting Balance", Amount = 1000, Status = "Completed" },
-                new Transaction(){ Date = DateTime.Parse("1/10/2014"), Description = "Rent", Amount = -750, Status = "Completed" },
-                new Transaction(){ Date = DateTime.Parse("1/12/2014"), Description = "Paycheck", Amount = 995.23m, Status = "Completed" },
-                new Transaction(){ Date = DateTime.Parse("1/1/2014"), Description = "Visa Card", Amount = -221.57m, Status = "Completed" },
+                new Transaction(){ Date = DateTime.Parse("1/1/2014"), DateFinal = true, Description = "Starting Balance", Amount = 1000, AmountFinal = true, Status = "Completed" },
+                new Transaction(){ Date = DateTime.Parse("1/10/2014"), DateFinal = true, Description = "Rent", Amount = -750, AmountFinal = true, Status = "Completed" },
+                new Transaction(){ Date = DateTime.Parse("1/12/2014"), DateFinal = true, Description = "Paycheck", DescriptionBackColor = "Purple", DescriptionForeColor = "White",
+                    Amount = 995.23m, AmountFinal = true, Status = "Completed" },
+                new Transaction(){ Date = DateTime.Parse("12/23/2014"), Description = "Visa Card", Amount = -221.57m, Status = "Completed" },
             });
 
             PopulateListView();
@@ -38,13 +39,31 @@ namespace CoinFrog
 
         void PopulateListView()
         {
+            lblLedgerName.Text = ledger.Name;
             lvTrans.Items.Clear();
 
             foreach (var t in ledger.LedgerTransactions)
             {
                 var lvi = new ListViewItem(t.Date.ToShortDateString());
+                lvi.UseItemStyleForSubItems = false;
+                if(!t.DateFinal)
+                {
+                    lvi.SubItems[0].ForeColor = Color.Red;
+                }
                 lvi.SubItems.Add(t.Description);
+                if(!string.IsNullOrEmpty(t.DescriptionBackColor))
+                {
+                    lvi.SubItems[1].BackColor = Color.FromName(t.DescriptionBackColor);
+                }
+                if (!string.IsNullOrEmpty(t.DescriptionForeColor))
+                {
+                    lvi.SubItems[1].ForeColor = Color.FromName(t.DescriptionForeColor);
+                }
                 lvi.SubItems.Add(t.Amount.ToString("$#,##0.00"));
+                if (!t.AmountFinal)
+                {
+                    lvi.SubItems[2].ForeColor = Color.Red;
+                }
                 lvi.SubItems.Add(t.Balance.ToString("$#,##0.00"));
                 lvi.SubItems.Add(t.Status);
                 lvTrans.Items.Add(lvi);
@@ -70,6 +89,7 @@ namespace CoinFrog
         private void btnAddTransaction_Click(object sender, EventArgs e)
         {
             var frm = new AddEditTransaction(null);
+
             if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // add it

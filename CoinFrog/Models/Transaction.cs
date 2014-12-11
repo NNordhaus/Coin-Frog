@@ -10,6 +10,7 @@ namespace CoinFrog.Models
         public decimal Amount { get; set; }
         public bool AmountFinal { get; set; }
         public string Description { get; set; }
+        public string DescriptionForeColor { get; set; }
         public string DescriptionBackColor { get; set; }
         public DateTime Date { get; set; }
         public bool DateFinal { get; set; }
@@ -22,6 +23,7 @@ namespace CoinFrog.Models
             {
                 Amount = Amount,
                 Description = Description,
+                DescriptionForeColor = DescriptionForeColor,
                 DescriptionBackColor = DescriptionBackColor,
                 Date = Date,
                 AmountFinal = AmountFinal,
@@ -46,6 +48,7 @@ namespace CoinFrog.Models
                 Date = t.Date,
                 DateFinal = t.DateFinal,
                 Description = t.Description,
+                DescriptionForeColor = t.DescriptionForeColor,
                 DescriptionBackColor = t.DescriptionBackColor,
                 RecurrenceName = t.RecurrenceName,
                 Status = t.Status
