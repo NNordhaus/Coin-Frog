@@ -63,13 +63,6 @@ namespace CoinFrog.Models
                         }
 
                         DateTime current = start;
-
-                        // Add days until we are the at ON date
-                        //while(current.Day < on[0])
-                        //{
-                        //    current = current.AddDays(1);
-                        //}
-
                         while (current <= end)
                         {
                             foreach (int dayOfMonth in on)
