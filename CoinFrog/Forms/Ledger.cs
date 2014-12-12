@@ -31,7 +31,14 @@ namespace CoinFrog
                 new Transaction(){ Date = DateTime.Parse("1/10/2014"), DateFinal = true, Description = "Rent", Amount = -750, AmountFinal = true, Status = "Completed" },
                 new Transaction(){ Date = DateTime.Parse("1/12/2014"), DateFinal = true, Description = "Paycheck", DescriptionBackColor = "Purple", DescriptionForeColor = "White",
                     Amount = 995.23m, AmountFinal = true, Status = "Completed" },
-                new Transaction(){ Date = DateTime.Parse("12/23/2014"), Description = "Visa Card", Amount = -221.57m, Status = "Completed" },
+                new Transaction(){ Date = DateTime.Parse("12/23/2014"), Description = "Visa Card", Amount = -221.57m, Status = "To Do" },
+            });
+
+            ledger.Statuses.AddRange(new List<Status>()
+            {
+                new Status(){ Name = "To Do", ForeColor = "Red", BackColor = "Pink" },
+                new Status(){ Name = "Auto Debit", ForeColor = "DarkGreen", BackColor = "LightGreen" }, 
+                new Status(){ Name = "Completed", ForeColor = "DarkGreen", BackColor = "LightGreen" },
             });
 
             PopulateListView();
@@ -76,7 +83,7 @@ namespace CoinFrog
             if (lvTrans.SelectedIndices.Count == 1)
             {
                 var index = lvTrans.SelectedIndices[0];
-                var frm = new AddEditTransaction(ledger.LedgerTransactions[index]);
+                var frm = new AddEditTransaction(ledger.LedgerTransactions[index], ledger.Statuses);
                 if(frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     ledger.Transactions.RemoveAt(index);
@@ -88,7 +95,7 @@ namespace CoinFrog
 
         private void btnAddTransaction_Click(object sender, EventArgs e)
         {
-            var frm = new AddEditTransaction(null);
+            var frm = new AddEditTransaction(null, ledger.Statuses);
 
             if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

@@ -17,9 +17,11 @@ namespace CoinFrog
 
         private Transaction trans;
 
-        public AddEditTransaction(Models.Transaction transaction)
+        public AddEditTransaction(Models.Transaction transaction, List<Status> statuses)
         {
             InitializeComponent();
+
+            cmboStatus.Items.AddRange(statuses.Select(s => s.Name).ToArray());
 
             if (transaction == null)
             {

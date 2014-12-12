@@ -58,6 +58,7 @@
     <Compile Include="Models\EveryType.cs" />
     <Compile Include="Models\Ledger.cs" />
     <Compile Include="Models\RecurringTransaction.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

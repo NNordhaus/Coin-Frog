@@ -12,10 +12,12 @@ namespace CoinFrog.Models
         public string Name { get; set; }
 
         public List<Transaction> Transactions { get; private set; }
+        public List<Status> Statuses { get; set; }
 
         public Ledger()
         {
             Transactions = new List<Transaction>();
+            Statuses = new List<Status>();
         }
 
         public void AddTransactions(IEnumerable<Transaction> list)
