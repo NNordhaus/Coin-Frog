@@ -7,94 +7,100 @@ namespace CoinFrog.Models
 {
     public class RecurringTransaction
     {
-        public IList<Transaction> GenerateToDate(DateTime start, int num, EveryType every, List<int> on, DateTime end, Transaction trans)
+        public string Name { get; set; }
+        public Transaction BaseTransaction { get; set; }
+        public int Num { get; set; }
+        public EveryType Every { get; set; }
+        public List<int> On { get; set; }
+
+        public IList<Transaction> GenerateToDate(DateTime end)
         {
-            if (start >= end)
+            if (BaseTransaction.Date >= end)
             {
-                throw new ArgumentException("start date must be before end date", "end");
+                throw new ArgumentException("Start date must be before End date", "End");
             }
 
-            if (num < 1)
+            if (Num < 1)
             {
-                throw new ArgumentException("num must be a positive number", "num");
+                throw new ArgumentException("Num must be a positive Number", "Num");
             }
 
             var results = new List<Transaction>();
 
-            switch (every)
+            switch (Every)
             {
                 case EveryType.Day:
                     {
-                        DateTime current = start;
+                        DateTime current = BaseTransaction.Date;
                         while (current <= end)
                         {
-                            var newTrans = trans.Clone();
+                            var newTrans = BaseTransaction.Clone();
                             newTrans.Date = current;
                             results.Add(newTrans);
-                            current = current.AddDays(num);
+                            current = current.AddDays(Num);
                         }
                         break;
                     }
                 case EveryType.Week:
                     {
-                        if (on == null || on.Count == 0)
+                        if (On == null || On.Count == 0)
                         {
-                            throw new ArgumentException("must have at least one weekday selected", "on");
+                            throw new ArgumentException("must have at least one weekday selected", "On");
                         }
-                        DateTime current = start;
+                        DateTime current = BaseTransaction.Date;
                         while (current <= end)
                         {
-                            foreach (int dayOfWeek in on)
+                            foreach (int dayOfWeek in On)
                             {
-                                var newTrans = trans.Clone();
+                                var newTrans = BaseTransaction.Clone();
                                 newTrans.Date = current;
                                 results.Add(newTrans);
                             }
 
-                            current = current.AddDays(num * 7);
+                            current = current.AddDays(Num * 7);
                         }
                         break;
                     }
                 case EveryType.Month:
                     {
-                        if (on == null || on.Count == 0)
+                        if (On == null || On.Count == 0)
                         {
-                            throw new ArgumentException("must have at least one day of month selected", "on");
+                            throw new ArgumentException("must have at least one day of month selected", "On");
                         }
 
-                        DateTime current = start;
+                        DateTime current = BaseTransaction.Date;
                         while (current <= end)
                         {
-                            foreach (int dayOfMonth in on)
+                            foreach (int dayOfMonth in On)
                             {
-                                var newTrans = trans.Clone();
+                                var newTrans = BaseTransaction.Clone();
                                 newTrans.Date = new DateTime(current.Year, current.Month, dayOfMonth);
                                 results.Add(newTrans);
                             }
 
-                            current = current.AddMonths(num);
+                            current = current.AddMonths(Num);
                         }
 
                         break;
                     }
                 case EveryType.Year:
                     {
-                        if (on == null || on.Count == 0)
+                        if (On == null || On.Count == 0)
                         {
-                            throw new ArgumentException("must have at least one day of year selected", "on");
+                            throw new ArgumentException("must have at least one day of year selected", "On");
                         }
 
-                        DateTime current = start;
+                        DateTime current = BaseTransaction.Date;
                         while (current <= end)
                         {
-                            foreach (int dayOfYear in on)
+                            foreach (int dayOfYear in On)
                             {
-                                var newTrans = trans.Clone();
+                                var newTrans = BaseTransaction.Clone();
                                 newTrans.Date = new DateTime(current.Year, 1, 1).AddDays(dayOfYear - 1);
                                 results.Add(newTrans);
                             }
 
-                            current = current.AddYears(num);
+                            current = current.AddYears(Num);
                         }
 
                         break;
@@ -103,7 +109,5 @@ namespace CoinFrog.Models
 
             return results;
         }
-
-        public string Name { get; set; }
     }
 }
