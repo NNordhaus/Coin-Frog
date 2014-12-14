@@ -29,16 +29,16 @@ namespace CoinFrog
             {
                 new Transaction(){ Date = DateTime.Parse("1/1/2014"), DateFinal = true, Description = "Starting Balance", Amount = 1000, AmountFinal = true, Status = "Completed" },
                 new Transaction(){ Date = DateTime.Parse("1/10/2014"), DateFinal = true, Description = "Rent", Amount = -750, AmountFinal = true, Status = "Completed" },
-                new Transaction(){ Date = DateTime.Parse("1/12/2014"), DateFinal = true, Description = "Paycheck", DescriptionBackColor = "Purple", DescriptionForeColor = "White",
+                new Transaction(){ Date = DateTime.Parse("1/12/2014"), DateFinal = true, Description = "Paycheck", DescriptionBackColor = Color.Purple.ToArgb(), DescriptionForeColor = Color.White.ToArgb(),
                     Amount = 995.23m, AmountFinal = true, Status = "Completed" },
                 new Transaction(){ Date = DateTime.Parse("12/23/2014"), Description = "Visa Card", Amount = -221.57m, Status = "To Do" },
             });
 
             ledger.Statuses.AddRange(new List<Status>()
             {
-                new Status(){ Name = "To Do", ForeColor = "Red", BackColor = "Pink" },
-                new Status(){ Name = "Auto Debit", ForeColor = "DarkGreen", BackColor = "LightGreen" }, 
-                new Status(){ Name = "Completed", ForeColor = "DarkGreen", BackColor = "LightGreen" },
+                new Status(){ Name = "To Do", ForeColor = Color.Red.ToArgb(), BackColor = Color.Pink.ToArgb() },
+                new Status(){ Name = "Auto Debit", ForeColor = Color.DarkGreen.ToArgb(), BackColor = Color.LightGreen.ToArgb() }, 
+                new Status(){ Name = "Completed", ForeColor = Color.DarkGreen.ToArgb(), BackColor = Color.LightGreen.ToArgb() },
             });
 
             PopulateListView();
@@ -58,14 +58,8 @@ namespace CoinFrog
                     lvi.SubItems[0].ForeColor = Color.Red;
                 }
                 lvi.SubItems.Add(t.Description);
-                if(!string.IsNullOrEmpty(t.DescriptionBackColor))
-                {
-                    lvi.SubItems[1].BackColor = Color.FromName(t.DescriptionBackColor);
-                }
-                if (!string.IsNullOrEmpty(t.DescriptionForeColor))
-                {
-                    lvi.SubItems[1].ForeColor = Color.FromName(t.DescriptionForeColor);
-                }
+                lvi.SubItems[1].BackColor = Color.FromArgb(t.DescriptionBackColor);
+                lvi.SubItems[1].ForeColor = Color.FromArgb(t.DescriptionForeColor);
                 lvi.SubItems.Add(t.Amount.ToString("$#,##0.00"));
                 if (!t.AmountFinal)
                 {
@@ -73,7 +67,18 @@ namespace CoinFrog
                 }
                 lvi.SubItems.Add(t.Balance.ToString("$#,##0.00"));
                 lvi.SubItems.Add(t.Status);
+                SetStatusColor(lvi.SubItems[4], t.Status);
                 lvTrans.Items.Add(lvi);
+            }
+        }
+
+        private void SetStatusColor(ListViewItem.ListViewSubItem item, string status)
+        {
+            var statusDef = ledger.Statuses.FirstOrDefault(s => s.Name == status);
+            if (statusDef != null)
+            {
+                item.ForeColor = Color.FromArgb(statusDef.ForeColor);
+                item.BackColor = Color.FromArgb(statusDef.BackColor);
             }
         }
 

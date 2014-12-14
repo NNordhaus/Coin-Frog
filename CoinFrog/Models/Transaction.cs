@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -10,12 +11,19 @@ namespace CoinFrog.Models
         public decimal Amount { get; set; }
         public bool AmountFinal { get; set; }
         public string Description { get; set; }
-        public string DescriptionForeColor { get; set; }
-        public string DescriptionBackColor { get; set; }
+        public int DescriptionForeColor { get; set; }
+        public int DescriptionBackColor { get; set; }
         public DateTime Date { get; set; }
         public bool DateFinal { get; set; }
         public string Status { get; set; }
         public string RecurrenceName { get; set; }
+
+        public Transaction()
+        {
+            // Default colors
+            DescriptionBackColor = Color.White.ToArgb();
+            DescriptionForeColor = Color.Black.ToArgb();
+        }
 
         public Transaction Clone()
         {

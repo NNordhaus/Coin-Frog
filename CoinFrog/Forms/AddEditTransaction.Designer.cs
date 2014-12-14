@@ -49,7 +49,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(487, 85);
+            this.btnCancel.Location = new System.Drawing.Point(487, 88);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 26);
             this.btnCancel.TabIndex = 9;
@@ -61,7 +61,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(580, 85);
+            this.btnSave.Location = new System.Drawing.Point(580, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 26);
             this.btnSave.TabIndex = 8;
@@ -84,7 +84,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(100, 20);
             this.txtDate.TabIndex = 0;
-            this.txtDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDate_KeyUp);
+            this.txtDate.Leave += new System.EventHandler(this.txtDate_Leave);
             // 
             // txtDescription
             // 
@@ -131,8 +131,11 @@
             // 
             // cmboStatus
             // 
+            this.cmboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmboStatus.FormattingEnabled = true;
             this.cmboStatus.Location = new System.Drawing.Point(542, 24);
+            this.cmboStatus.MaxDropDownItems = 20;
             this.cmboStatus.Name = "cmboStatus";
             this.cmboStatus.Size = new System.Drawing.Size(121, 21);
             this.cmboStatus.TabIndex = 7;
@@ -146,6 +149,7 @@
             this.cbDateFinal.TabIndex = 1;
             this.cbDateFinal.Text = "Date finalized";
             this.cbDateFinal.UseVisualStyleBackColor = true;
+            this.cbDateFinal.CheckedChanged += new System.EventHandler(this.cbDateFinal_CheckedChanged);
             // 
             // cbAmountFinal
             // 
@@ -156,24 +160,27 @@
             this.cbAmountFinal.TabIndex = 6;
             this.cbAmountFinal.Text = "Amount finalized";
             this.cbAmountFinal.UseVisualStyleBackColor = true;
+            this.cbAmountFinal.CheckedChanged += new System.EventHandler(this.cbAmountFinal_CheckedChanged);
             // 
             // btnTextColor
             // 
-            this.btnTextColor.Location = new System.Drawing.Point(259, 47);
+            this.btnTextColor.Location = new System.Drawing.Point(257, 47);
             this.btnTextColor.Name = "btnTextColor";
-            this.btnTextColor.Size = new System.Drawing.Size(75, 23);
+            this.btnTextColor.Size = new System.Drawing.Size(76, 23);
             this.btnTextColor.TabIndex = 3;
-            this.btnTextColor.Text = "Text Color";
+            this.btnTextColor.Text = "Text Color...";
             this.btnTextColor.UseVisualStyleBackColor = true;
+            this.btnTextColor.Click += new System.EventHandler(this.btnTextColor_Click);
             // 
             // btnBackColor
             // 
-            this.btnBackColor.Location = new System.Drawing.Point(340, 47);
+            this.btnBackColor.Location = new System.Drawing.Point(339, 47);
             this.btnBackColor.Name = "btnBackColor";
-            this.btnBackColor.Size = new System.Drawing.Size(75, 23);
+            this.btnBackColor.Size = new System.Drawing.Size(76, 23);
             this.btnBackColor.TabIndex = 4;
-            this.btnBackColor.Text = "Back Color";
+            this.btnBackColor.Text = "Back Color...";
             this.btnBackColor.UseVisualStyleBackColor = true;
+            this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
             // 
             // AddEditTransaction
             // 
@@ -181,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(679, 123);
+            this.ClientSize = new System.Drawing.Size(679, 126);
             this.Controls.Add(this.btnBackColor);
             this.Controls.Add(this.btnTextColor);
             this.Controls.Add(this.cbAmountFinal);

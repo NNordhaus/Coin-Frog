@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace CoinFrogTests.Models
                 Date = DateTime.Parse("2015-01-01"),
                 DateFinal = true,
                 Description = "deskripshun",
-                DescriptionBackColor = "EEEEEE",
+                DescriptionBackColor = Color.LightGray.ToArgb(),
                 RecurrenceName = "paycheck",
                 Status = "Complete"
             };
@@ -53,7 +54,7 @@ namespace CoinFrogTests.Models
                 Date = new DateTime(2015, 1, 1),
                 DateFinal = true,
                 Description = "desc",
-                DescriptionBackColor = "bg",
+                DescriptionBackColor = 500,
                 RecurrenceName = "r",
                 Status = "s"
             };

@@ -8,7 +8,7 @@ namespace CoinFrog.Models
     public class Status
     {
         public string Name { get; set; }
-        public string ForeColor { get; set; }
-        public string BackColor { get; set; }
+        public int ForeColor { get; set; }
+        public int BackColor { get; set; }
     }
 }

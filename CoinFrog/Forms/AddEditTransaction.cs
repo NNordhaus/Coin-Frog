@@ -22,7 +22,7 @@ namespace CoinFrog
             InitializeComponent();
 
             cmboStatus.Items.AddRange(statuses.Select(s => s.Name).ToArray());
-
+            
             if (transaction == null)
             {
                 trans = new Transaction();
@@ -39,13 +39,19 @@ namespace CoinFrog
                 txtDate.Text = trans.Date.ToShortDateString();
                 cbDateFinal.Checked = trans.DateFinal;
                 txtDescription.Text = trans.Description;
-                //cmboStatus
+                txtDescription.ForeColor = Color.FromArgb(trans.DescriptionForeColor);
+                txtDescription.BackColor = Color.FromArgb(trans.DescriptionBackColor);
+                cmboStatus.Text = transaction.Status;
             }
         }
 
-        private void txtDate_KeyUp(object sender, KeyEventArgs e)
+        private void txtDate_Leave(object sender, EventArgs e)
         {
-            // If enter key, validate as date, and reformat
+            DateTime date;
+            if (DateTime.TryParse(txtDate.Text, out date))
+            {
+                txtDate.Text = date.ToShortDateString();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -61,8 +67,8 @@ namespace CoinFrog
             trans.Amount = amount;
             trans.Date = DateTime.Parse(txtDate.Text);
             trans.Description = txtDescription.Text;
-            //trans.DescriptionForColor = 
-            //trans.DescriptionBackColor = 
+            trans.DescriptionForeColor = txtDescription.ForeColor.ToArgb();
+            trans.DescriptionBackColor = txtDescription.BackColor.ToArgb();
             trans.AmountFinal = cbAmountFinal.Checked;
             trans.DateFinal = cbDateFinal.Checked;
             trans.Status = cmboStatus.Text;
@@ -77,5 +83,46 @@ namespace CoinFrog
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
         }
 
+        private void btnTextColor_Click(object sender, EventArgs e)
+        {
+            var cd = new ColorDialog() { Color = txtDescription.ForeColor };
+            if(cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtDescription.ForeColor = cd.Color;
+            }
+        }
+
+        private void btnBackColor_Click(object sender, EventArgs e)
+        {
+            var cd = new ColorDialog() { Color = txtDescription.BackColor };
+            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtDescription.BackColor = cd.Color;
+            }
+        }
+
+        private void cbDateFinal_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbDateFinal.Checked)
+            {
+                txtDate.ForeColor = Color.Black;
+            }
+            else
+            {
+                txtDate.ForeColor = Color.Red;
+            }
+        }
+
+        private void cbAmountFinal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAmountFinal.Checked)
+            {
+                txtAmount.ForeColor = Color.Black;
+            }
+            else
+            {
+                txtAmount.ForeColor = Color.Red;
+            }
+        }
     }
 }
