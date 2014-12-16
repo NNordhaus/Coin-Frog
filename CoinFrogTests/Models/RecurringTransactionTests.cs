@@ -7,205 +7,208 @@ using CoinFrog.Models;
 
 namespace CoinFrogTests.Models
 {
-    [TestClass]
     public class RecurringTransactionTests
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GenerateToDate_Should_reject_a_StartDate_after_EndDate()
+        [TestClass]
+        public class GenerateToDate
         {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            [ExpectedException(typeof(ArgumentException))]
+            public void Should_reject_a_StartDate_after_EndDate()
             {
-                BaseTransaction = new Transaction()
+                var sut = new RecurringTransaction()
                 {
-                    Date = DateTime.Parse("2015-01-01"),
-                },
-                Num = 1,
-                Every = EveryType.Day
-            };
+                    BaseTransaction = new Transaction()
+                    {
+                        Date = DateTime.Parse("2015-01-01"),
+                    },
+                    Num = 1,
+                    Every = EveryType.Day
+                };
 
-            sut.GenerateToDate(DateTime.Parse("2014-01-01"));
-        }
-        
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void GenerateToDate_Should_reject_a_non_positive_num()
-        {
-            var sut = new RecurringTransaction()
+                sut.GenerateToDate(DateTime.Parse("2014-01-01"));
+            }
+
+            [TestMethod]
+            [ExpectedException(typeof(ArgumentException))]
+            public void Should_reject_a_non_positive_num()
             {
-                BaseTransaction = new Transaction()
+                var sut = new RecurringTransaction()
                 {
-                    Date = DateTime.Parse("2014-01-01"),
-                },
-                Num = 0,
-                Every = EveryType.Day
-            };
-        
-            sut.GenerateToDate(DateTime.Parse("2015-01-01"));
-        }
+                    BaseTransaction = new Transaction()
+                    {
+                        Date = DateTime.Parse("2014-01-01"),
+                    },
+                    Num = 0,
+                    Every = EveryType.Day
+                };
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_Correct_Number_Of_Transactions_For_Daily()
-        {
-            var sut = new RecurringTransaction()
+                sut.GenerateToDate(DateTime.Parse("2015-01-01"));
+            }
+
+            [TestMethod]
+            public void Should_Generate_Correct_Number_Of_Transactions_For_Daily()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
-                Every = EveryType.Day,
-                Num = 1
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
+                    Every = EveryType.Day,
+                    Num = 1
+                };
 
-            var end = DateTime.Parse("2015-01-28");
+                var end = DateTime.Parse("2015-01-28");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(28, list.Count);
-        }
+                Assert.AreEqual(28, list.Count);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_Correct_Number_Of_Transactions_For_Every_Other_Day()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_Correct_Number_Of_Transactions_For_Every_Other_Day()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
-                Num = 2,
-                Every = EveryType.Day
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
+                    Num = 2,
+                    Every = EveryType.Day
+                };
 
-            var end = DateTime.Parse("2015-01-28");
-            
-            var list = sut.GenerateToDate(end);
+                var end = DateTime.Parse("2015-01-28");
 
-            Assert.AreEqual(14, list.Count);
-        }
+                var list = sut.GenerateToDate(end);
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_53_Transactions_For_Weekly_In_A_Year()
-        {
-            var sut = new RecurringTransaction()
+                Assert.AreEqual(14, list.Count);
+            }
+
+            [TestMethod]
+            public void Should_Generate_53_Transactions_For_Weekly_In_A_Year()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
-                Num = 1,
-                Every = EveryType.Week,
-                On = new List<int>(){1}
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
+                    Num = 1,
+                    Every = EveryType.Week,
+                    On = new List<int>() { 1 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(53, list.Count);
-        }
+                Assert.AreEqual(53, list.Count);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_4_Transactions_For_Quarterly_In_A_Year()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_4_Transactions_For_Quarterly_In_A_Year()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
-                Num = 3,
-                Every = EveryType.Month,
-                On = new List<int>() { 20 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
+                    Num = 3,
+                    Every = EveryType.Month,
+                    On = new List<int>() { 20 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(4, list.Count);
-        }
+                Assert.AreEqual(4, list.Count);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_4_Transactions_On_The_Right_DayOfMonth_For_Quarterly_In_A_Year()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_4_Transactions_On_The_Right_DayOfMonth_For_Quarterly_In_A_Year()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
-                Num = 3,
-                Every = EveryType.Month,
-                On = new List<int>() { 20 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
+                    Num = 3,
+                    Every = EveryType.Month,
+                    On = new List<int>() { 20 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(20, list[0].Date.Day);
-            Assert.AreEqual(20, list[3].Date.Day);
-        }
+                Assert.AreEqual(20, list[0].Date.Day);
+                Assert.AreEqual(20, list[3].Date.Day);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_24_Transactions_First_And_Fifteenth_of_each_month_Schedule()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_24_Transactions_First_And_Fifteenth_of_each_month_Schedule()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
-                Num = 1,
-                Every = EveryType.Month,
-                On = new List<int>() { 1, 15 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
+                    Num = 1,
+                    Every = EveryType.Month,
+                    On = new List<int>() { 1, 15 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(24, list.Count);
-        }
+                Assert.AreEqual(24, list.Count);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_Transactions_On_Correct_Days_for_a_First_And_Fifteenth_of_each_month_Schedule()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_Transactions_On_Correct_Days_for_a_First_And_Fifteenth_of_each_month_Schedule()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
-                Num = 1,
-                Every = EveryType.Month,
-                On = new List<int>() { 1, 15 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
+                    Num = 1,
+                    Every = EveryType.Month,
+                    On = new List<int>() { 1, 15 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(1, list[0].Date.Day);
-            Assert.AreEqual(15, list[1].Date.Day);
-            Assert.AreEqual(1, list[22].Date.Day);
-            Assert.AreEqual(15, list[23].Date.Day);
-        }
+                Assert.AreEqual(1, list[0].Date.Day);
+                Assert.AreEqual(15, list[1].Date.Day);
+                Assert.AreEqual(1, list[22].Date.Day);
+                Assert.AreEqual(15, list[23].Date.Day);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_5_Transactions_for_1_day_per_year_over_5_years()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_5_Transactions_for_1_day_per_year_over_5_years()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = 199.65m, Description = "Tax Refund", AmountFinal = true, Status = "Projected" },
-                Num = 1,
-                Every = EveryType.Year,
-                On = new List<int>() { 15 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = 199.65m, Description = "Tax Refund", AmountFinal = true, Status = "Projected" },
+                    Num = 1,
+                    Every = EveryType.Year,
+                    On = new List<int>() { 15 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(5, list.Count);
-        }
+                Assert.AreEqual(5, list.Count);
+            }
 
-        [TestMethod]
-        public void GenerateToDate_Should_Generate_10_Transactions_for_twice_a_year_over_5_years()
-        {
-            var sut = new RecurringTransaction()
+            [TestMethod]
+            public void Should_Generate_10_Transactions_for_twice_a_year_over_5_years()
             {
-                BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = -1200, Description = "Property Tax", AmountFinal = false, Status = "Auto Debit" },
-                Num = 1,
-                Every = EveryType.Year,
-                On = new List<int>() { 173, 356 }
-            };
+                var sut = new RecurringTransaction()
+                {
+                    BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = -1200, Description = "Property Tax", AmountFinal = false, Status = "Auto Debit" },
+                    Num = 1,
+                    Every = EveryType.Year,
+                    On = new List<int>() { 173, 356 }
+                };
 
-            var end = DateTime.Parse("2014-12-31");
+                var end = DateTime.Parse("2014-12-31");
 
-            var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(end);
 
-            Assert.AreEqual(10, list.Count);
+                Assert.AreEqual(10, list.Count);
+            }
         }
     }
 }
