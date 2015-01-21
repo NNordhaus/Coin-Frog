@@ -209,6 +209,18 @@ namespace CoinFrogTests.Models
 
                 Assert.AreEqual(10, list.Count);
             }
+
+            [TestMethod]
+            public void Should_Not_Generate_Prior_to_StarDate()
+            {
+                Assert.Inconclusive();
+            }
+
+            [TestMethod]
+            public void Should_Not_Generate_Past_EndDate()
+            {
+                Assert.Inconclusive();
+            }
         }
     }
 }
