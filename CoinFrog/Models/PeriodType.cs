@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CoinFrog.Models
 {
-    public enum EveryType
+    public enum PeriodType
     {
         Day, Week, Month, Year
     }

@@ -55,7 +55,7 @@
     <Compile Include="Forms\Ledger.Designer.cs">
       <DependentUpon>Ledger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\EveryType.cs" />
+    <Compile Include="Models\PeriodType.cs" />
     <Compile Include="Models\Ledger.cs" />
     <Compile Include="Models\RecurringTransaction.cs" />
     <Compile Include="Models\Status.cs" />

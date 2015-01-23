@@ -10,7 +10,7 @@ namespace CoinFrog.Models
         public string Name { get; set; }
         public Transaction BaseTransaction { get; set; }
         public int Num { get; set; }
-        public EveryType Every { get; set; }
+        public PeriodType Every { get; set; }
         public List<int> On { get; set; }
 
         public IList<Transaction> GenerateToDate(DateTime end)
@@ -29,7 +29,7 @@ namespace CoinFrog.Models
 
             switch (Every)
             {
-                case EveryType.Day:
+                case PeriodType.Day:
                     {
                         DateTime current = BaseTransaction.Date;
                         while (current <= end)
@@ -41,7 +41,7 @@ namespace CoinFrog.Models
                         }
                         break;
                     }
-                case EveryType.Week:
+                case PeriodType.Week:
                     {
                         if (On == null || On.Count == 0)
                         {
@@ -61,7 +61,7 @@ namespace CoinFrog.Models
                         }
                         break;
                     }
-                case EveryType.Month:
+                case PeriodType.Month:
                     {
                         if (On == null || On.Count == 0)
                         {
@@ -83,7 +83,7 @@ namespace CoinFrog.Models
 
                         break;
                     }
-                case EveryType.Year:
+                case PeriodType.Year:
                     {
                         if (On == null || On.Count == 0)
                         {
