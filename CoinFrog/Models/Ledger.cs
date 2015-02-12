@@ -13,7 +13,7 @@ namespace CoinFrog.Models
 
         public List<Transaction> Transactions { get; private set; }
         public List<Status> Statuses { get; set; }
-
+        public int DaysToForecast { get; set; }
         public Ledger()
         {
             Transactions = new List<Transaction>();

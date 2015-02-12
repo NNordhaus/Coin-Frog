@@ -70,6 +70,8 @@ namespace CoinFrog
                 SetStatusColor(lvi.SubItems[4], t.Status);
                 lvTrans.Items.Add(lvi);
             }
+
+            // ToDo: scroll to the first non-complete transaction, since the list could be very long
         }
 
         private void SetStatusColor(ListViewItem.ListViewSubItem item, string status)

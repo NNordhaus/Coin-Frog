@@ -42,6 +42,8 @@
             this.cbAmountFinal = new System.Windows.Forms.CheckBox();
             this.btnTextColor = new System.Windows.Forms.Button();
             this.btnBackColor = new System.Windows.Forms.Button();
+            this.btnDateUp = new System.Windows.Forms.Button();
+            this.btnDateDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -49,7 +51,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(487, 88);
+            this.btnCancel.Location = new System.Drawing.Point(495, 88);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 26);
             this.btnCancel.TabIndex = 9;
@@ -61,7 +63,7 @@
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(580, 88);
+            this.btnSave.Location = new System.Drawing.Point(588, 88);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 26);
             this.btnSave.TabIndex = 8;
@@ -88,7 +90,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(127, 25);
+            this.txtDescription.Location = new System.Drawing.Point(139, 25);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(288, 20);
             this.txtDescription.TabIndex = 2;
@@ -96,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(124, 9);
+            this.label2.Location = new System.Drawing.Point(136, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 8;
@@ -105,7 +107,7 @@
             // txtAmount
             // 
             this.txtAmount.HideSelection = false;
-            this.txtAmount.Location = new System.Drawing.Point(429, 25);
+            this.txtAmount.Location = new System.Drawing.Point(441, 25);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(103, 20);
             this.txtAmount.TabIndex = 5;
@@ -114,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 9);
+            this.label3.Location = new System.Drawing.Point(438, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 10;
@@ -123,7 +125,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(539, 9);
+            this.label4.Location = new System.Drawing.Point(551, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 12;
@@ -134,7 +136,7 @@
             this.cmboStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cmboStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmboStatus.FormattingEnabled = true;
-            this.cmboStatus.Location = new System.Drawing.Point(542, 24);
+            this.cmboStatus.Location = new System.Drawing.Point(554, 24);
             this.cmboStatus.MaxDropDownItems = 20;
             this.cmboStatus.Name = "cmboStatus";
             this.cmboStatus.Size = new System.Drawing.Size(121, 21);
@@ -154,7 +156,7 @@
             // cbAmountFinal
             // 
             this.cbAmountFinal.AutoSize = true;
-            this.cbAmountFinal.Location = new System.Drawing.Point(429, 51);
+            this.cbAmountFinal.Location = new System.Drawing.Point(441, 51);
             this.cbAmountFinal.Name = "cbAmountFinal";
             this.cbAmountFinal.Size = new System.Drawing.Size(103, 17);
             this.cbAmountFinal.TabIndex = 6;
@@ -164,7 +166,7 @@
             // 
             // btnTextColor
             // 
-            this.btnTextColor.Location = new System.Drawing.Point(257, 47);
+            this.btnTextColor.Location = new System.Drawing.Point(269, 47);
             this.btnTextColor.Name = "btnTextColor";
             this.btnTextColor.Size = new System.Drawing.Size(76, 23);
             this.btnTextColor.TabIndex = 3;
@@ -174,7 +176,7 @@
             // 
             // btnBackColor
             // 
-            this.btnBackColor.Location = new System.Drawing.Point(339, 47);
+            this.btnBackColor.Location = new System.Drawing.Point(351, 47);
             this.btnBackColor.Name = "btnBackColor";
             this.btnBackColor.Size = new System.Drawing.Size(76, 23);
             this.btnBackColor.TabIndex = 4;
@@ -182,13 +184,34 @@
             this.btnBackColor.UseVisualStyleBackColor = true;
             this.btnBackColor.Click += new System.EventHandler(this.btnBackColor_Click);
             // 
+            // btnDateUp
+            // 
+            this.btnDateUp.Location = new System.Drawing.Point(115, 24);
+            this.btnDateUp.Name = "btnDateUp";
+            this.btnDateUp.Size = new System.Drawing.Size(18, 13);
+            this.btnDateUp.TabIndex = 13;
+            this.btnDateUp.Text = "^";
+            this.btnDateUp.UseVisualStyleBackColor = true;
+            // 
+            // btnDateDown
+            // 
+            this.btnDateDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDateDown.Location = new System.Drawing.Point(115, 36);
+            this.btnDateDown.Name = "btnDateDown";
+            this.btnDateDown.Size = new System.Drawing.Size(18, 13);
+            this.btnDateDown.TabIndex = 14;
+            this.btnDateDown.Text = "v";
+            this.btnDateDown.UseVisualStyleBackColor = true;
+            // 
             // AddEditTransaction
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(679, 126);
+            this.ClientSize = new System.Drawing.Size(687, 126);
+            this.Controls.Add(this.btnDateDown);
+            this.Controls.Add(this.btnDateUp);
             this.Controls.Add(this.btnBackColor);
             this.Controls.Add(this.btnTextColor);
             this.Controls.Add(this.cbAmountFinal);
@@ -228,5 +251,7 @@
         private System.Windows.Forms.CheckBox cbAmountFinal;
         private System.Windows.Forms.Button btnTextColor;
         private System.Windows.Forms.Button btnBackColor;
+        private System.Windows.Forms.Button btnDateUp;
+        private System.Windows.Forms.Button btnDateDown;
     }
 }

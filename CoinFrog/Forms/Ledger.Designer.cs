@@ -44,6 +44,9 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forecastsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.encryptOnSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,9 +118,9 @@
             // 
             this.btnAddTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTransaction.Location = new System.Drawing.Point(229, 33);
+            this.btnAddTransaction.Location = new System.Drawing.Point(229, 27);
             this.btnAddTransaction.Name = "btnAddTransaction";
-            this.btnAddTransaction.Size = new System.Drawing.Size(159, 26);
+            this.btnAddTransaction.Size = new System.Drawing.Size(159, 32);
             this.btnAddTransaction.TabIndex = 6;
             this.btnAddTransaction.Text = "Add Transaction...";
             this.btnAddTransaction.UseVisualStyleBackColor = true;
@@ -136,11 +139,13 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.CheckOnClick = true;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem});
+            this.saveAsToolStripMenuItem,
+            this.encryptOnSaveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
@@ -180,7 +185,8 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusesToolStripMenuItem});
+            this.statusesToolStripMenuItem,
+            this.forecastsToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -188,8 +194,32 @@
             // statusesToolStripMenuItem
             // 
             this.statusesToolStripMenuItem.Name = "statusesToolStripMenuItem";
-            this.statusesToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.statusesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statusesToolStripMenuItem.Text = "Statuses";
+            // 
+            // forecastsToolStripMenuItem
+            // 
+            this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
+            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.forecastsToolStripMenuItem.Text = "Forecasts";
+            // 
+            // encryptOnSaveToolStripMenuItem
+            // 
+            this.encryptOnSaveToolStripMenuItem.CheckOnClick = true;
+            this.encryptOnSaveToolStripMenuItem.Name = "encryptOnSaveToolStripMenuItem";
+            this.encryptOnSaveToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.encryptOnSaveToolStripMenuItem.Text = "Encrypt on Save";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(394, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 32);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Recurring Transactions...";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Ledger
             // 
@@ -197,6 +227,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 678);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddTransaction);
             this.Controls.Add(this.lblLedgerName);
             this.Controls.Add(this.lvTrans);
@@ -229,6 +260,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statusesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem encryptOnSaveToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
