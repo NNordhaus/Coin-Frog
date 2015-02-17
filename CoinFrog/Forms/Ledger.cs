@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 
 using CoinFrog.Models;
 using System.IO;
+using CoinFrog.Forms;
 
 namespace CoinFrog
 {
@@ -170,6 +171,12 @@ namespace CoinFrog
                     saveToolStripMenuItem_Click(null, null);
                 }
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new Settings();
+            frm.ShowDialog();
         }
     }
 }

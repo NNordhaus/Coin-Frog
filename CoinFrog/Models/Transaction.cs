@@ -9,6 +9,7 @@ namespace CoinFrog.Models
     public class Transaction
     {
         public decimal Amount { get; set; }
+        public bool AmountForecasted { get; set; }
         public bool AmountFinal { get; set; }
         public string Description { get; set; }
         public int DescriptionForeColor { get; set; }

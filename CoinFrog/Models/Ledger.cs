@@ -12,11 +12,13 @@ namespace CoinFrog.Models
         public string Name { get; set; }
 
         public List<Transaction> Transactions { get; private set; }
+        public List<RecurringTransaction> RecurringTransactions { get; set; }
         public List<Status> Statuses { get; set; }
         public int DaysToForecast { get; set; }
         public Ledger()
         {
             Transactions = new List<Transaction>();
+            RecurringTransactions = new List<RecurringTransaction>();
             Statuses = new List<Status>();
         }
 

@@ -42,11 +42,9 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.forecastsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encryptOnSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRecurring = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,7 +152,7 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -162,7 +160,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.openToolStripMenuItem.Text = "&Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -170,7 +168,7 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -178,30 +176,9 @@
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12;
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusesToolStripMenuItem,
-            this.forecastsToolStripMenuItem});
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.settingsToolStripMenuItem.Text = "&Settings";
-            // 
-            // statusesToolStripMenuItem
-            // 
-            this.statusesToolStripMenuItem.Name = "statusesToolStripMenuItem";
-            this.statusesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.statusesToolStripMenuItem.Text = "Statuses";
-            // 
-            // forecastsToolStripMenuItem
-            // 
-            this.forecastsToolStripMenuItem.Name = "forecastsToolStripMenuItem";
-            this.forecastsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.forecastsToolStripMenuItem.Text = "Forecasts";
             // 
             // encryptOnSaveToolStripMenuItem
             // 
@@ -210,16 +187,23 @@
             this.encryptOnSaveToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.encryptOnSaveToolStripMenuItem.Text = "Encrypt on Save";
             // 
-            // button1
+            // settingsToolStripMenuItem
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(394, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Recurring Transactions...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "&Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // btnRecurring
+            // 
+            this.btnRecurring.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRecurring.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecurring.Location = new System.Drawing.Point(394, 27);
+            this.btnRecurring.Name = "btnRecurring";
+            this.btnRecurring.Size = new System.Drawing.Size(193, 32);
+            this.btnRecurring.TabIndex = 8;
+            this.btnRecurring.Text = "Recurring Transactions...";
+            this.btnRecurring.UseVisualStyleBackColor = true;
             // 
             // Ledger
             // 
@@ -227,7 +211,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 678);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRecurring);
             this.Controls.Add(this.btnAddTransaction);
             this.Controls.Add(this.lblLedgerName);
             this.Controls.Add(this.lvTrans);
@@ -259,10 +243,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem forecastsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encryptOnSaveToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRecurring;
     }
 }
 

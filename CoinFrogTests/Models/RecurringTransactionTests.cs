@@ -26,7 +26,7 @@ namespace CoinFrogTests.Models
                     Every = PeriodType.Day
                 };
 
-                sut.GenerateToDate(DateTime.Parse("2014-01-01"));
+                sut.GenerateToDate(null, DateTime.Parse("2014-01-01"));
             }
 
             [TestMethod]
@@ -43,7 +43,7 @@ namespace CoinFrogTests.Models
                     Every = PeriodType.Day
                 };
 
-                sut.GenerateToDate(DateTime.Parse("2015-01-01"));
+                sut.GenerateToDate(null, DateTime.Parse("2015-01-01"));
             }
 
             [TestMethod]
@@ -58,7 +58,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2015-01-28");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(28, list.Count);
             }
@@ -75,7 +75,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2015-01-28");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(14, list.Count);
             }
@@ -93,7 +93,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(53, list.Count);
             }
@@ -111,7 +111,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(4, list.Count);
             }
@@ -129,7 +129,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(20, list[0].Date.Day);
                 Assert.AreEqual(20, list[3].Date.Day);
@@ -148,7 +148,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(24, list.Count);
             }
@@ -166,7 +166,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(1, list[0].Date.Day);
                 Assert.AreEqual(15, list[1].Date.Day);
@@ -187,7 +187,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(5, list.Count);
             }
@@ -205,7 +205,7 @@ namespace CoinFrogTests.Models
 
                 var end = DateTime.Parse("2014-12-31");
 
-                var list = sut.GenerateToDate(end);
+                var list = sut.GenerateToDate(null, end);
 
                 Assert.AreEqual(10, list.Count);
             }

@@ -9,11 +9,16 @@ namespace CoinFrog.Models
     {
         public string Name { get; set; }
         public Transaction BaseTransaction { get; set; }
+        public DateTime Until { get; set; }
         public int Num { get; set; }
         public PeriodType Every { get; set; }
         public List<int> On { get; set; }
 
-        public IList<Transaction> GenerateToDate(DateTime end)
+        public ForecastAlgorithm Algo { get; set; }
+        public int ForecastParam { get; set; }
+        public decimal ForecastPaddingPct { get; set; }
+
+        public IList<Transaction> GenerateToDate(List<Transaction> previousTransactions, DateTime end)
         {
             if (BaseTransaction.Date >= end)
             {
@@ -109,5 +114,29 @@ namespace CoinFrog.Models
 
             return results;
         }
+
+        private decimal ForecastAmount(List<Transaction> previousTransactions)
+        {
+            if(previousTransactions == null || previousTransactions.Count == 0)
+            {
+                return ApplyPadding(BaseTransaction.Amount);
+            }
+
+            return ApplyPadding(BaseTransaction.Amount);
+        }
+
+        public decimal ApplyPadding(decimal amount)
+        {
+            return amount * (1m + (ForecastPaddingPct / 100m));
+        }
+    }
+
+    public enum ForecastAlgorithm
+    {
+        Fixed,
+        Mean,
+        Median,
+        Min,
+        Max
     }
 }
