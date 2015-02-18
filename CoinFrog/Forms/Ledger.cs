@@ -35,13 +35,6 @@ namespace CoinFrog
                 new Transaction(){ Date = DateTime.Parse("12/23/2014"), Description = "Visa Card", Amount = -221.57m, Status = "To Do" },
             });
 
-            ledger.Statuses.AddRange(new List<Status>()
-            {
-                new Status(){ Name = "To Do", ForeColor = Color.Red.ToArgb(), BackColor = Color.Pink.ToArgb() },
-                new Status(){ Name = "Auto Debit", ForeColor = Color.DarkGreen.ToArgb(), BackColor = Color.LightGreen.ToArgb() }, 
-                new Status(){ Name = "Completed", ForeColor = Color.DarkGreen.ToArgb(), BackColor = Color.LightGreen.ToArgb() },
-            });
-
             PopulateListView();
         }
 

@@ -20,6 +20,12 @@ namespace CoinFrog.Models
             Transactions = new List<Transaction>();
             RecurringTransactions = new List<RecurringTransaction>();
             Statuses = new List<Status>();
+
+            // Defaults:
+            DaysToForecast = 90;
+            Statuses.Add(new Status() { Name = "ToDo", BackColor = 0xE67086, ForeColor = 0x700116 });
+            Statuses.Add(new Status() { Name = "Pending", BackColor = 0xFFFFFF, ForeColor = 0x000000 });
+            Statuses.Add(new Status() { Name = "Completed", BackColor = 0x91E397, ForeColor = 0x085E0E });
         }
 
         public void AddTransactions(IEnumerable<Transaction> list)
