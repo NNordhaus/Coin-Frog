@@ -18,6 +18,37 @@ namespace CoinFrog
             InitializeComponent();
 
             txtName.Text = rt.Name;
+
+            if(string.IsNullOrEmpty(rt.Name))
+            {
+                this.Text = "Add Transaction";
+            }
+            else
+            {
+                this.Text = "Edit Transaction";
+            }
+
+            cmboRepeat.SelectedIndex = 0;
+        }
+
+        private void cmboRepeat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Show hide the various panels
+            switch((string)cmboRepeat.SelectedValue)
+            {
+                case "Days":
+
+                    break;
+                case "Weeks":
+
+                    break;
+                case "Months":
+
+                    break;
+                case "Years":
+
+                    break;
+            }
         }
     }
 }

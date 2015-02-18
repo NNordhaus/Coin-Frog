@@ -24,5 +24,14 @@ namespace CoinFrog.Forms
                 item.SubItems.Add(rt.BaseTransaction.Amount.ToString("c"));
             }
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var frm = new Recurring(new RecurringTransaction());
+            if(frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //frm.Value
+            }
+        }
     }
 }

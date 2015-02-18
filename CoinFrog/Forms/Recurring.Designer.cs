@@ -32,7 +32,7 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.cmboRepeat = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlWeeks = new System.Windows.Forms.Panel();
             this.cbSunday = new System.Windows.Forms.CheckBox();
             this.cbSaturday = new System.Windows.Forms.CheckBox();
             this.cbFriday = new System.Windows.Forms.CheckBox();
@@ -40,14 +40,14 @@
             this.cbWednesday = new System.Windows.Forms.CheckBox();
             this.cbTuesday = new System.Windows.Forms.CheckBox();
             this.cbMonday = new System.Windows.Forms.CheckBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlDays = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpMonths = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBox64 = new System.Windows.Forms.CheckBox();
             this.checkBox63 = new System.Windows.Forms.CheckBox();
             this.checkBox62 = new System.Windows.Forms.CheckBox();
@@ -81,15 +81,15 @@
             this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.pnlWeeks.SuspendLayout();
+            this.pnlDays.SuspendLayout();
+            this.flpMonths.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Location = new System.Drawing.Point(12, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 0;
@@ -97,7 +97,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(89, 19);
+            this.numericUpDown1.Location = new System.Drawing.Point(89, 54);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(64, 20);
             this.numericUpDown1.TabIndex = 1;
@@ -118,33 +118,34 @@
             "Weeks",
             "Months",
             "Years"});
-            this.cmboRepeat.Location = new System.Drawing.Point(159, 18);
+            this.cmboRepeat.Location = new System.Drawing.Point(159, 53);
             this.cmboRepeat.Name = "cmboRepeat";
             this.cmboRepeat.Size = new System.Drawing.Size(121, 21);
             this.cmboRepeat.TabIndex = 2;
+            this.cmboRepeat.SelectedIndexChanged += new System.EventHandler(this.cmboRepeat_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 59);
+            this.label2.Location = new System.Drawing.Point(12, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "On";
             // 
-            // panel1
+            // pnlWeeks
             // 
-            this.panel1.Controls.Add(this.cbSunday);
-            this.panel1.Controls.Add(this.cbSaturday);
-            this.panel1.Controls.Add(this.cbFriday);
-            this.panel1.Controls.Add(this.cbThursday);
-            this.panel1.Controls.Add(this.cbWednesday);
-            this.panel1.Controls.Add(this.cbTuesday);
-            this.panel1.Controls.Add(this.cbMonday);
-            this.panel1.Location = new System.Drawing.Point(39, 104);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(509, 23);
-            this.panel1.TabIndex = 4;
+            this.pnlWeeks.Controls.Add(this.cbSunday);
+            this.pnlWeeks.Controls.Add(this.cbSaturday);
+            this.pnlWeeks.Controls.Add(this.cbFriday);
+            this.pnlWeeks.Controls.Add(this.cbThursday);
+            this.pnlWeeks.Controls.Add(this.cbWednesday);
+            this.pnlWeeks.Controls.Add(this.cbTuesday);
+            this.pnlWeeks.Controls.Add(this.cbMonday);
+            this.pnlWeeks.Location = new System.Drawing.Point(39, 139);
+            this.pnlWeeks.Name = "pnlWeeks";
+            this.pnlWeeks.Size = new System.Drawing.Size(509, 23);
+            this.pnlWeeks.TabIndex = 4;
             // 
             // cbSunday
             // 
@@ -216,14 +217,14 @@
             this.cbMonday.Text = "Monday";
             this.cbMonday.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // pnlDays
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(39, 52);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(509, 32);
-            this.panel2.TabIndex = 7;
+            this.pnlDays.Controls.Add(this.textBox1);
+            this.pnlDays.Controls.Add(this.label3);
+            this.pnlDays.Location = new System.Drawing.Point(39, 87);
+            this.pnlDays.Name = "pnlDays";
+            this.pnlDays.Size = new System.Drawing.Size(509, 32);
+            this.pnlDays.TabIndex = 7;
             // 
             // textBox1
             // 
@@ -243,24 +244,26 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(155, 291);
+            this.txtName.Location = new System.Drawing.Point(78, 11);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(158, 20);
+            this.txtName.Size = new System.Drawing.Size(224, 20);
             this.txtName.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 294);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Name this Recurrence";
+            this.label4.Text = "Name:";
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(390, 333);
+            this.btnCancel.Location = new System.Drawing.Point(389, 465);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;
@@ -269,52 +272,53 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(471, 333);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(470, 465);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // flpMonths
             // 
-            this.flowLayoutPanel1.Controls.Add(this.checkBox64);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox63);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox62);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox61);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox60);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox59);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox58);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox57);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox56);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox55);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox54);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox53);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox52);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox51);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox50);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox49);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox48);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox47);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox46);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox45);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox44);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox43);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox42);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox41);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox40);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox39);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox38);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox37);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox36);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox23);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox22);
-            this.flowLayoutPanel1.Controls.Add(this.checkBox21);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(39, 145);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 123);
-            this.flowLayoutPanel1.TabIndex = 12;
+            this.flpMonths.Controls.Add(this.checkBox64);
+            this.flpMonths.Controls.Add(this.checkBox63);
+            this.flpMonths.Controls.Add(this.checkBox62);
+            this.flpMonths.Controls.Add(this.checkBox61);
+            this.flpMonths.Controls.Add(this.checkBox60);
+            this.flpMonths.Controls.Add(this.checkBox59);
+            this.flpMonths.Controls.Add(this.checkBox58);
+            this.flpMonths.Controls.Add(this.checkBox57);
+            this.flpMonths.Controls.Add(this.checkBox56);
+            this.flpMonths.Controls.Add(this.checkBox55);
+            this.flpMonths.Controls.Add(this.checkBox54);
+            this.flpMonths.Controls.Add(this.checkBox53);
+            this.flpMonths.Controls.Add(this.checkBox52);
+            this.flpMonths.Controls.Add(this.checkBox51);
+            this.flpMonths.Controls.Add(this.checkBox50);
+            this.flpMonths.Controls.Add(this.checkBox49);
+            this.flpMonths.Controls.Add(this.checkBox48);
+            this.flpMonths.Controls.Add(this.checkBox47);
+            this.flpMonths.Controls.Add(this.checkBox46);
+            this.flpMonths.Controls.Add(this.checkBox45);
+            this.flpMonths.Controls.Add(this.checkBox44);
+            this.flpMonths.Controls.Add(this.checkBox43);
+            this.flpMonths.Controls.Add(this.checkBox42);
+            this.flpMonths.Controls.Add(this.checkBox41);
+            this.flpMonths.Controls.Add(this.checkBox40);
+            this.flpMonths.Controls.Add(this.checkBox39);
+            this.flpMonths.Controls.Add(this.checkBox38);
+            this.flpMonths.Controls.Add(this.checkBox37);
+            this.flpMonths.Controls.Add(this.checkBox36);
+            this.flpMonths.Controls.Add(this.checkBox23);
+            this.flpMonths.Controls.Add(this.checkBox22);
+            this.flpMonths.Controls.Add(this.checkBox21);
+            this.flpMonths.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpMonths.Location = new System.Drawing.Point(39, 180);
+            this.flpMonths.Name = "flpMonths";
+            this.flpMonths.Size = new System.Drawing.Size(509, 123);
+            this.flpMonths.TabIndex = 12;
             // 
             // checkBox64
             // 
@@ -642,9 +646,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(559, 378);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(559, 500);
+            this.Controls.Add(this.pnlWeeks);
+            this.Controls.Add(this.flpMonths);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label4);
@@ -653,16 +657,16 @@
             this.Controls.Add(this.cmboRepeat);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlDays);
             this.Name = "Recurring";
             this.Text = "Add/Edit Recurring Transaction";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.pnlWeeks.ResumeLayout(false);
+            this.pnlWeeks.PerformLayout();
+            this.pnlDays.ResumeLayout(false);
+            this.pnlDays.PerformLayout();
+            this.flpMonths.ResumeLayout(false);
+            this.flpMonths.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,7 +678,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.ComboBox cmboRepeat;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlWeeks;
         private System.Windows.Forms.CheckBox cbSunday;
         private System.Windows.Forms.CheckBox cbSaturday;
         private System.Windows.Forms.CheckBox cbFriday;
@@ -682,14 +686,14 @@
         private System.Windows.Forms.CheckBox cbWednesday;
         private System.Windows.Forms.CheckBox cbTuesday;
         private System.Windows.Forms.CheckBox cbMonday;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlDays;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpMonths;
         private System.Windows.Forms.CheckBox checkBox64;
         private System.Windows.Forms.CheckBox checkBox63;
         private System.Windows.Forms.CheckBox checkBox62;
