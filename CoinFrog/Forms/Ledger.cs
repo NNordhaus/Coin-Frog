@@ -168,7 +168,13 @@ namespace CoinFrog
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new Settings();
+            var frm = new Settings(ledger);
+            frm.ShowDialog();
+        }
+
+        private void btnRecurring_Click(object sender, EventArgs e)
+        {
+            var frm = new RecurringList(ledger.RecurringTransactions);
             frm.ShowDialog();
         }
     }

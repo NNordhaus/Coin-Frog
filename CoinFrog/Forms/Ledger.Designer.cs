@@ -204,6 +204,7 @@
             this.btnRecurring.TabIndex = 8;
             this.btnRecurring.Text = "Recurring Transactions...";
             this.btnRecurring.UseVisualStyleBackColor = true;
+            this.btnRecurring.Click += new System.EventHandler(this.btnRecurring_Click);
             // 
             // Ledger
             // 
