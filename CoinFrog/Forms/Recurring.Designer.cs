@@ -32,6 +32,7 @@
             this.nudNum = new System.Windows.Forms.NumericUpDown();
             this.cmboRepeat = new System.Windows.Forms.ComboBox();
             this.pnlWeeks = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbSunday = new System.Windows.Forms.CheckBox();
             this.cbSaturday = new System.Windows.Forms.CheckBox();
             this.cbFriday = new System.Windows.Forms.CheckBox();
@@ -44,6 +45,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.flpMonths = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.checkBox64 = new System.Windows.Forms.CheckBox();
             this.checkBox63 = new System.Windows.Forms.CheckBox();
             this.checkBox62 = new System.Windows.Forms.CheckBox();
@@ -77,19 +79,17 @@
             this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.pnlAmount = new System.Windows.Forms.Panel();
+            this.txtBasseAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pnlYears = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtBasseAmount = new System.Windows.Forms.TextBox();
-            this.pnlYears = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudNum)).BeginInit();
             this.pnlWeeks.SuspendLayout();
             this.flpMonths.SuspendLayout();
@@ -150,6 +150,15 @@
             this.pnlWeeks.Name = "pnlWeeks";
             this.pnlWeeks.Size = new System.Drawing.Size(540, 23);
             this.pnlWeeks.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "On";
             // 
             // cbSunday
             // 
@@ -299,6 +308,15 @@
             this.flpMonths.Name = "flpMonths";
             this.flpMonths.Size = new System.Drawing.Size(539, 98);
             this.flpMonths.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.flpMonths.SetFlowBreak(this.label3, true);
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "On";
             // 
             // checkBox64
             // 
@@ -632,6 +650,22 @@
             this.pnlAmount.Size = new System.Drawing.Size(539, 54);
             this.pnlAmount.TabIndex = 13;
             // 
+            // txtBasseAmount
+            // 
+            this.txtBasseAmount.Location = new System.Drawing.Point(87, 10);
+            this.txtBasseAmount.Name = "txtBasseAmount";
+            this.txtBasseAmount.Size = new System.Drawing.Size(100, 20);
+            this.txtBasseAmount.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Base Amount:";
+            // 
             // flpMain
             // 
             this.flpMain.AutoSize = true;
@@ -646,23 +680,40 @@
             this.flpMain.Size = new System.Drawing.Size(563, 229);
             this.flpMain.TabIndex = 14;
             // 
-            // label2
+            // pnlYears
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "On";
+            this.pnlYears.Controls.Add(this.label9);
+            this.pnlYears.Controls.Add(this.textBox1);
+            this.pnlYears.Controls.Add(this.label8);
+            this.pnlYears.Location = new System.Drawing.Point(3, 136);
+            this.pnlYears.Name = "pnlYears";
+            this.pnlYears.Size = new System.Drawing.Size(540, 23);
+            this.pnlYears.TabIndex = 19;
             // 
-            // label3
+            // label9
             // 
-            this.flpMonths.SetFlowBreak(this.label3, true);
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "On";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(255, 4);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(260, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "(Comma seperated list of days of the year, as integers)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(30, 1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(219, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 4);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(21, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "On";
             // 
             // label5
             // 
@@ -700,57 +751,6 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Until";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Base Amount:";
-            // 
-            // txtBasseAmount
-            // 
-            this.txtBasseAmount.Location = new System.Drawing.Point(87, 10);
-            this.txtBasseAmount.Name = "txtBasseAmount";
-            this.txtBasseAmount.Size = new System.Drawing.Size(100, 20);
-            this.txtBasseAmount.TabIndex = 1;
-            // 
-            // pnlYears
-            // 
-            this.pnlYears.Controls.Add(this.label9);
-            this.pnlYears.Controls.Add(this.textBox1);
-            this.pnlYears.Controls.Add(this.label8);
-            this.pnlYears.Location = new System.Drawing.Point(3, 136);
-            this.pnlYears.Name = "pnlYears";
-            this.pnlYears.Size = new System.Drawing.Size(540, 23);
-            this.pnlYears.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "On";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(30, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 8;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(255, 4);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(260, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "(Comma seperated list of days of the year, as integers)";
-            // 
             // Recurring
             // 
             this.AcceptButton = this.btnSave;
@@ -771,6 +771,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.flpMain);
             this.Name = "Recurring";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Recurring Transaction";
             ((System.ComponentModel.ISupportInitialize)(this.nudNum)).EndInit();
             this.pnlWeeks.ResumeLayout(false);

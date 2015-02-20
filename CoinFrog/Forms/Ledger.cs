@@ -98,7 +98,7 @@ namespace CoinFrog
         {
             var frm = new AddEditTransaction(null, ledger.Statuses);
 
-            if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (frm.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 // add it
                 ledger.AddTransaction(frm.Transaction);
@@ -122,7 +122,7 @@ namespace CoinFrog
         {
             var sd = new SaveFileDialog();
 
-            if (sd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (sd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 currentFilePath = sd.FileName;
                 saveToolStripMenuItem_Click(sender, e);
@@ -134,7 +134,7 @@ namespace CoinFrog
             CheckAndSaveCurrentFile();
 
             var ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (ofd.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 var settings = new JsonSerializerSettings()
                 {
@@ -169,13 +169,13 @@ namespace CoinFrog
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new Settings(ledger);
-            frm.ShowDialog();
+            frm.ShowDialog(this);
         }
 
         private void btnRecurring_Click(object sender, EventArgs e)
         {
             var frm = new RecurringList(ledger.RecurringTransactions);
-            frm.ShowDialog();
+            frm.ShowDialog(this);
         }
     }
 }

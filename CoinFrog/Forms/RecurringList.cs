@@ -12,9 +12,13 @@ namespace CoinFrog.Forms
 {
     public partial class RecurringList : Form
     {
+        public List<RecurringTransaction> Value { get; set; }
+
         public RecurringList(List<RecurringTransaction> rts)
         {
             InitializeComponent();
+
+            Value = rts;
 
             foreach(var rt in rts)
             {
@@ -28,9 +32,17 @@ namespace CoinFrog.Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var frm = new Recurring(new RecurringTransaction());
-            if(frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if(frm.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
-                //frm.Value
+                Value.Add(frm.Value);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this?", "Confirm Delete", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+
             }
         }
     }
