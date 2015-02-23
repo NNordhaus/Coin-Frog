@@ -23,7 +23,7 @@ namespace CoinFrogTests.Models
                         Date = DateTime.Parse("2015-01-01"),
                     },
                     Num = 1,
-                    Every = PeriodType.Day
+                    Every = PeriodType.Days
                 };
 
                 sut.GenerateToDate(null, DateTime.Parse("2014-01-01"));
@@ -40,7 +40,7 @@ namespace CoinFrogTests.Models
                         Date = DateTime.Parse("2014-01-01"),
                     },
                     Num = 0,
-                    Every = PeriodType.Day
+                    Every = PeriodType.Days
                 };
 
                 sut.GenerateToDate(null, DateTime.Parse("2015-01-01"));
@@ -52,7 +52,7 @@ namespace CoinFrogTests.Models
                 var sut = new RecurringTransaction()
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
-                    Every = PeriodType.Day,
+                    Every = PeriodType.Days,
                     Num = 1
                 };
 
@@ -70,7 +70,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2015-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
                     Num = 2,
-                    Every = PeriodType.Day
+                    Every = PeriodType.Days
                 };
 
                 var end = DateTime.Parse("2015-01-28");
@@ -87,7 +87,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 100, Description = "Paycheck", AmountFinal = true, Status = "Projected" },
                     Num = 1,
-                    Every = PeriodType.Week,
+                    Every = PeriodType.Weeks,
                     On = new List<int>() { 1 }
                 };
 
@@ -105,7 +105,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
                     Num = 3,
-                    Every = PeriodType.Month,
+                    Every = PeriodType.Months,
                     On = new List<int>() { 20 }
                 };
 
@@ -123,7 +123,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = -175, Description = "Water bill", AmountFinal = false, Status = "To Do" },
                     Num = 3,
-                    Every = PeriodType.Month,
+                    Every = PeriodType.Months,
                     On = new List<int>() { 20 }
                 };
 
@@ -142,7 +142,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
                     Num = 1,
-                    Every = PeriodType.Month,
+                    Every = PeriodType.Months,
                     On = new List<int>() { 1, 15 }
                 };
 
@@ -160,7 +160,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2014-01-01"), Amount = 199.65m, Description = "gubment money", AmountFinal = true, Status = "To Do" },
                     Num = 1,
-                    Every = PeriodType.Month,
+                    Every = PeriodType.Months,
                     On = new List<int>() { 1, 15 }
                 };
 
@@ -181,7 +181,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = 199.65m, Description = "Tax Refund", AmountFinal = true, Status = "Projected" },
                     Num = 1,
-                    Every = PeriodType.Year,
+                    Every = PeriodType.Years,
                     On = new List<int>() { 15 }
                 };
 
@@ -199,7 +199,7 @@ namespace CoinFrogTests.Models
                 {
                     BaseTransaction = new Transaction() { Date = DateTime.Parse("2010-01-01"), Amount = -1200, Description = "Property Tax", AmountFinal = false, Status = "Auto Debit" },
                     Num = 1,
-                    Every = PeriodType.Year,
+                    Every = PeriodType.Years,
                     On = new List<int>() { 173, 356 }
                 };
 

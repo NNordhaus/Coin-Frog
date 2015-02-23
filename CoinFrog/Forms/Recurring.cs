@@ -38,7 +38,7 @@ namespace CoinFrog
             }
             else
             {
-                cmboRepeat.Text = rt.Every.ToString();
+                cmboRepeat.SelectedIndex = cmboRepeat.FindStringExact(rt.Every.ToString());
             }
 
             nudNum.Value = rt.Num;

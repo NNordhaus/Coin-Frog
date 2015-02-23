@@ -114,6 +114,7 @@
             this.Controls.Add(this.lvRecurringTransactions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "RecurringList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Recurring Transactions";
             this.ResumeLayout(false);
             this.PerformLayout();

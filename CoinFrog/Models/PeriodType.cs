@@ -7,6 +7,6 @@ namespace CoinFrog.Models
 {
     public enum PeriodType
     {
-        Day, Week, Month, Year
+        Days, Weeks, Months, Years
     }
 }

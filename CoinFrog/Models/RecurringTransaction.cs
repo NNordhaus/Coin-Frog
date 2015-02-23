@@ -34,7 +34,7 @@ namespace CoinFrog.Models
 
             switch (Every)
             {
-                case PeriodType.Day:
+                case PeriodType.Days:
                     {
                         DateTime current = BaseTransaction.Date;
                         while (current <= end)
@@ -46,7 +46,7 @@ namespace CoinFrog.Models
                         }
                         break;
                     }
-                case PeriodType.Week:
+                case PeriodType.Weeks:
                     {
                         if (On == null || On.Count == 0)
                         {
@@ -66,7 +66,7 @@ namespace CoinFrog.Models
                         }
                         break;
                     }
-                case PeriodType.Month:
+                case PeriodType.Months:
                     {
                         if (On == null || On.Count == 0)
                         {
@@ -88,7 +88,7 @@ namespace CoinFrog.Models
 
                         break;
                     }
-                case PeriodType.Year:
+                case PeriodType.Years:
                     {
                         if (On == null || On.Count == 0)
                         {
