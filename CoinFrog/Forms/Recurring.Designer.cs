@@ -46,7 +46,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.flpMonths = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox64 = new System.Windows.Forms.CheckBox();
+            this.cb1 = new System.Windows.Forms.CheckBox();
             this.checkBox63 = new System.Windows.Forms.CheckBox();
             this.checkBox62 = new System.Windows.Forms.CheckBox();
             this.checkBox61 = new System.Windows.Forms.CheckBox();
@@ -84,12 +84,14 @@
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlYears = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtOn = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtTransName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudNum)).BeginInit();
             this.pnlWeeks.SuspendLayout();
             this.flpMonths.SuspendLayout();
@@ -101,7 +103,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Location = new System.Drawing.Point(12, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 0;
@@ -109,7 +111,7 @@
             // 
             // nudNum
             // 
-            this.nudNum.Location = new System.Drawing.Point(89, 54);
+            this.nudNum.Location = new System.Drawing.Point(89, 71);
             this.nudNum.Name = "nudNum";
             this.nudNum.Size = new System.Drawing.Size(64, 20);
             this.nudNum.TabIndex = 1;
@@ -130,7 +132,7 @@
             "Weeks",
             "Months",
             "Years"});
-            this.cmboRepeat.Location = new System.Drawing.Point(159, 53);
+            this.cmboRepeat.Location = new System.Drawing.Point(159, 70);
             this.cmboRepeat.Name = "cmboRepeat";
             this.cmboRepeat.Size = new System.Drawing.Size(121, 21);
             this.cmboRepeat.TabIndex = 2;
@@ -232,9 +234,9 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(78, 11);
+            this.txtName.Location = new System.Drawing.Point(177, 9);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(224, 20);
+            this.txtName.Size = new System.Drawing.Size(233, 20);
             this.txtName.TabIndex = 8;
             // 
             // label4
@@ -243,15 +245,15 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 20);
+            this.label4.Size = new System.Drawing.Size(158, 20);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Name:";
+            this.label4.Text = "Recurrence Name:";
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(446, 342);
+            this.btnCancel.Location = new System.Drawing.Point(446, 365);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;
@@ -261,7 +263,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(527, 342);
+            this.btnSave.Location = new System.Drawing.Point(527, 365);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 11;
@@ -272,7 +274,7 @@
             // flpMonths
             // 
             this.flpMonths.Controls.Add(this.label3);
-            this.flpMonths.Controls.Add(this.checkBox64);
+            this.flpMonths.Controls.Add(this.cb1);
             this.flpMonths.Controls.Add(this.checkBox63);
             this.flpMonths.Controls.Add(this.checkBox62);
             this.flpMonths.Controls.Add(this.checkBox61);
@@ -318,15 +320,15 @@
             this.label3.TabIndex = 70;
             this.label3.Text = "On";
             // 
-            // checkBox64
+            // cb1
             // 
-            this.checkBox64.AutoSize = true;
-            this.checkBox64.Location = new System.Drawing.Point(3, 26);
-            this.checkBox64.Name = "checkBox64";
-            this.checkBox64.Size = new System.Drawing.Size(32, 17);
-            this.checkBox64.TabIndex = 38;
-            this.checkBox64.Text = "1";
-            this.checkBox64.UseVisualStyleBackColor = true;
+            this.cb1.AutoSize = true;
+            this.cb1.Location = new System.Drawing.Point(3, 26);
+            this.cb1.Name = "cb1";
+            this.cb1.Size = new System.Drawing.Size(32, 17);
+            this.cb1.TabIndex = 38;
+            this.cb1.Text = "1";
+            this.cb1.UseVisualStyleBackColor = true;
             // 
             // checkBox63
             // 
@@ -634,6 +636,7 @@
             // checkBox21
             // 
             this.checkBox21.AutoSize = true;
+            this.checkBox21.Enabled = false;
             this.checkBox21.Location = new System.Drawing.Point(267, 72);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(68, 17);
@@ -656,6 +659,7 @@
             this.txtBasseAmount.Name = "txtBasseAmount";
             this.txtBasseAmount.Size = new System.Drawing.Size(100, 20);
             this.txtBasseAmount.TabIndex = 1;
+            this.txtBasseAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -675,7 +679,7 @@
             this.flpMain.Controls.Add(this.pnlYears);
             this.flpMain.Controls.Add(this.pnlAmount);
             this.flpMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpMain.Location = new System.Drawing.Point(32, 100);
+            this.flpMain.Location = new System.Drawing.Point(32, 117);
             this.flpMain.Name = "flpMain";
             this.flpMain.Size = new System.Drawing.Size(563, 229);
             this.flpMain.TabIndex = 14;
@@ -683,7 +687,7 @@
             // pnlYears
             // 
             this.pnlYears.Controls.Add(this.label9);
-            this.pnlYears.Controls.Add(this.textBox1);
+            this.pnlYears.Controls.Add(this.txtOn);
             this.pnlYears.Controls.Add(this.label8);
             this.pnlYears.Location = new System.Drawing.Point(3, 136);
             this.pnlYears.Name = "pnlYears";
@@ -699,12 +703,12 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "(Comma seperated list of days of the year, as integers)";
             // 
-            // textBox1
+            // txtOn
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 1);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtOn.Location = new System.Drawing.Point(30, 1);
+            this.txtOn.Name = "txtOn";
+            this.txtOn.Size = new System.Drawing.Size(219, 20);
+            this.txtOn.TabIndex = 8;
             // 
             // label8
             // 
@@ -718,7 +722,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(307, 56);
+            this.label5.Location = new System.Drawing.Point(307, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 15;
@@ -727,7 +731,7 @@
             // dtpFrom
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(343, 53);
+            this.dtpFrom.Location = new System.Drawing.Point(343, 70);
             this.dtpFrom.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dtpFrom.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFrom.Name = "dtpFrom";
@@ -737,7 +741,9 @@
             // dtpUntil
             // 
             this.dtpUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpUntil.Location = new System.Drawing.Point(494, 53);
+            this.dtpUntil.Location = new System.Drawing.Point(494, 70);
+            this.dtpUntil.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.dtpUntil.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpUntil.Name = "dtpUntil";
             this.dtpUntil.Size = new System.Drawing.Size(101, 20);
             this.dtpUntil.TabIndex = 18;
@@ -745,11 +751,28 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(458, 56);
+            this.label6.Location = new System.Drawing.Point(458, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "Until";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(12, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(159, 20);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Transaction Name:";
+            // 
+            // txtTransName
+            // 
+            this.txtTransName.Location = new System.Drawing.Point(177, 35);
+            this.txtTransName.Name = "txtTransName";
+            this.txtTransName.Size = new System.Drawing.Size(233, 20);
+            this.txtTransName.TabIndex = 19;
             // 
             // Recurring
             // 
@@ -757,7 +780,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(616, 377);
+            this.ClientSize = new System.Drawing.Size(616, 400);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtTransName);
             this.Controls.Add(this.dtpUntil);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpFrom);
@@ -806,7 +831,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.FlowLayoutPanel flpMonths;
-        private System.Windows.Forms.CheckBox checkBox64;
+        private System.Windows.Forms.CheckBox cb1;
         private System.Windows.Forms.CheckBox checkBox63;
         private System.Windows.Forms.CheckBox checkBox62;
         public System.Windows.Forms.CheckBox checkBox61;
@@ -850,7 +875,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlYears;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtOn;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtTransName;
     }
 }

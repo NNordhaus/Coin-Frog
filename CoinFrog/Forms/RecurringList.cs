@@ -42,7 +42,7 @@ namespace CoinFrog.Forms
         {
             if (MessageBox.Show("Are you sure you want to delete this?", "Confirm Delete", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-
+                MessageBox.Show("Not Implemented");
             }
         }
     }

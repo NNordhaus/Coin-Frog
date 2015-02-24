@@ -80,6 +80,78 @@ namespace CoinFrog
                 - Must have a name that doesn't already exist
                 - Must have at least one day selected             
             */
+
+            if(dtpFrom.Value > dtpUntil.Value)
+            {
+                MessageBox.Show("From date must be before Until date");
+            }
+
+            Value.Name = txtName.Text;
+            Value.BaseTransaction = new Transaction();
+            Value.BaseTransaction.Description = txtTransName.Text;
+            Value.Num = (int)nudNum.Value;
+
+            switch(cmboRepeat.SelectedText)
+            {
+                case "Days":
+                    Value.Every = PeriodType.Days;
+                    break;
+                case "Weeks":
+                    Value.Every = PeriodType.Weeks;
+                    Value.On = new List<int>();
+                    #region Add Up days of the week
+                    if(cbSunday.Checked)
+                    {
+                        Value.On.Add(1);
+                    }
+                    if (cbMonday.Checked)
+                    {
+                        Value.On.Add(2);
+                    }
+                    if (cbTuesday.Checked)
+                    {
+                        Value.On.Add(3);
+                    }
+                    if (cbWednesday.Checked)
+                    {
+                        Value.On.Add(4);
+                    }
+                    if (cbThursday.Checked)
+                    {
+                        Value.On.Add(5);
+                    }
+                    if (cbFriday.Checked)
+                    {
+                        Value.On.Add(6);
+                    }
+                    if (cbSaturday.Checked)
+                    {
+                        Value.On.Add(7);
+                    }
+                    #endregion
+                    break;
+                case "Months":
+                    Value.Every = PeriodType.Months;
+                    Value.On = new List<int>();
+                    foreach(var c in flpMonths.Controls)
+                    {
+                        if(c.GetType() == typeof(CheckBox))
+                        {
+                            var cb = (CheckBox)c;
+                            if(cb.Checked)
+                            {
+                                Value.On.Add(int.Parse(cb.Text));
+                            }
+                        }
+                    }
+                    break;
+                case "Years":
+                    Value.Every = PeriodType.Years;
+                    Value.On = txtOn.Text.Split(new char[] { ',' }).Select(a => int.Parse(a)).ToList();
+                    break;
+            }
+
+            DialogResult = System.Windows.Forms.DialogResult.OK;
         }
     }
 }
