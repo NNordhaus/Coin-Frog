@@ -54,6 +54,7 @@
             this.lvRecurringTransactions.TabIndex = 0;
             this.lvRecurringTransactions.UseCompatibleStateImageBehavior = false;
             this.lvRecurringTransactions.View = System.Windows.Forms.View.Details;
+            this.lvRecurringTransactions.ItemActivate += new System.EventHandler(this.lvRecurringTransactions_ItemActivate);
             // 
             // colName
             // 

@@ -41,11 +41,13 @@ namespace CoinFrog
         void PopulateListView()
         {
             lblLedgerName.Text = ledger.Name;
+            SuspendLayout();
             lvTrans.Items.Clear();
 
             foreach (var t in ledger.LedgerTransactions)
             {
                 var lvi = new ListViewItem(t.Date.ToShortDateString());
+                lvi.Tag = t;
                 lvi.UseItemStyleForSubItems = false;
                 if(!t.DateFinal)
                 {
@@ -66,6 +68,8 @@ namespace CoinFrog
             }
 
             // ToDo: scroll to the first non-complete transaction, since the list could be very long
+
+            ResumeLayout();
         }
 
         private void SetStatusColor(ListViewItem.ListViewSubItem item, string status)
@@ -170,12 +174,25 @@ namespace CoinFrog
         {
             var frm = new Settings(ledger);
             frm.ShowDialog(this);
+            PopulateListView();
         }
 
         private void btnRecurring_Click(object sender, EventArgs e)
         {
             var frm = new RecurringList(ledger.RecurringTransactions);
             frm.ShowDialog(this);
+            PopulateListView();
+        }
+
+        private void lvTrans_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && lvTrans.SelectedIndices.Count == 1)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this transaction?", "Confirm Delete", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    // Delete the item from the ledger AND the list view
+                }
+            }
         }
     }
 }

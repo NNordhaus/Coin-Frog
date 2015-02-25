@@ -21,6 +21,7 @@ namespace CoinFrog.Forms
             ledgerRef = ledger;
 
             nudDaysToForecast.Value = ledger.DaysToForecast;
+            nudDaysToCalculate.Value = ledger.DaysToCalculate;
 
             foreach(var s in ledger.Statuses)
             {
@@ -36,6 +37,7 @@ namespace CoinFrog.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             ledgerRef.DaysToForecast = (int)nudDaysToForecast.Value;
+            ledgerRef.DaysToCalculate = (int)nudDaysToCalculate.Value;
 
             ledgerRef.Statuses = new List<Status>(lvStatuses.Items.Count);
             foreach(ListViewItem item in lvStatuses.Items)
@@ -89,6 +91,14 @@ namespace CoinFrog.Forms
             if(frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 lvStatuses.Items.Add(frm.Value);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete this Status?", "Confirm Delete", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+            {
+                lvStatuses.Items.RemoveAt(lvStatuses.SelectedIndices[0]);
             }
         }
     }

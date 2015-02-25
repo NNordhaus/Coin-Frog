@@ -15,6 +15,7 @@ namespace CoinFrog.Models
         public List<RecurringTransaction> RecurringTransactions { get; set; }
         public List<Status> Statuses { get; set; }
         public int DaysToForecast { get; set; }
+        public int DaysToCalculate { get; set; }
         public Ledger()
         {
             Transactions = new List<Transaction>();
@@ -22,7 +23,8 @@ namespace CoinFrog.Models
             Statuses = new List<Status>();
 
             // Defaults:
-            DaysToForecast = 90;
+            DaysToForecast = 365;
+            DaysToCalculate = 92;
             Statuses.Add(new Status() { Name = "ToDo", BackColor = 0xE67086, ForeColor = 0x700116 });
             Statuses.Add(new Status() { Name = "Pending", BackColor = 0xFFFFFF, ForeColor = 0x000000 });
             Statuses.Add(new Status() { Name = "Completed", BackColor = 0x91E397, ForeColor = 0x085E0E });
@@ -42,7 +44,16 @@ namespace CoinFrog.Models
         {
             get
             {
-                var ot = Transactions.OrderBy(t => t.Date);
+                // Generate Recurring Transactions
+                var trans = new List<Transaction>();
+                foreach(var rt in RecurringTransactions)
+                {
+                    trans.AddRange(rt.GenerateToDate(null, DateTime.Today.AddDays(DaysToForecast)));
+                }
+
+                trans.AddRange(Transactions);
+                var ot = trans.OrderBy(t => t.Date);
+
                 var lts = new List<LedgerTransation>(ot.Count());
                 
                 decimal balance = 0;

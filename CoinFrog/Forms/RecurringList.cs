@@ -46,6 +46,15 @@ namespace CoinFrog.Forms
             }
         }
 
+        private void lvRecurringTransactions_ItemActivate(object sender, EventArgs e)
+        {
+            var frm = new Recurring(Value[lvRecurringTransactions.SelectedIndices[0]]);
+            if (frm.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
+            {
+                RefreshListView();
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this?", "Confirm Delete", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)

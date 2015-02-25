@@ -72,6 +72,7 @@
             this.lvTrans.UseCompatibleStateImageBehavior = false;
             this.lvTrans.View = System.Windows.Forms.View.Details;
             this.lvTrans.DoubleClick += new System.EventHandler(this.lvTrans_DoubleClick);
+            this.lvTrans.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lvTrans_KeyUp);
             // 
             // columnHeader1
             // 

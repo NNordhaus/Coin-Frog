@@ -7,7 +7,19 @@ namespace CoinFrog.Models
 {
     public class RecurringTransaction
     {
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                BaseTransaction.RecurrenceName = value;
+            }
+        }
         public Transaction BaseTransaction { get; set; }
         public DateTime Until { get; set; }
         public int Num { get; set; }
@@ -23,6 +35,8 @@ namespace CoinFrog.Models
             // Set up some defaults
             Num = 1;
             Every = PeriodType.Months;
+            BaseTransaction = new Transaction();
+            On = new List<int>();
         }
 
         public IList<Transaction> GenerateToDate(List<Transaction> previousTransactions, DateTime end)
