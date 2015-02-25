@@ -70,13 +70,14 @@ namespace CoinFrog
             flpMain.Height = flpHeight;
 
             // Size the form
-            this.Height = flpMain.Height + 187;
+            this.Height = flpMain.Height + 203;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             /* Things to validate:
-                - Start date must be before until date
+                - From date must be before until date
+                - Must have names
                 - Must have a name that doesn't already exist
                 - Must have at least one day selected             
             */
@@ -89,9 +90,11 @@ namespace CoinFrog
             Value.Name = txtName.Text;
             Value.BaseTransaction = new Transaction();
             Value.BaseTransaction.Description = txtTransName.Text;
+            Value.BaseTransaction.Amount = decimal.Parse(txtBaseAmount.Text);
             Value.Num = (int)nudNum.Value;
+            Value.Until = dtpUntil.Value;
 
-            switch(cmboRepeat.SelectedText)
+            switch(cmboRepeat.Text)
             {
                 case "Days":
                     Value.Every = PeriodType.Days;

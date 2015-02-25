@@ -79,7 +79,7 @@
             this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.pnlAmount = new System.Windows.Forms.Panel();
-            this.txtBasseAmount = new System.Windows.Forms.TextBox();
+            this.txtBaseAmount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlYears = new System.Windows.Forms.Panel();
@@ -114,7 +114,7 @@
             this.nudNum.Location = new System.Drawing.Point(89, 71);
             this.nudNum.Name = "nudNum";
             this.nudNum.Size = new System.Drawing.Size(64, 20);
-            this.nudNum.TabIndex = 1;
+            this.nudNum.TabIndex = 2;
             this.nudNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudNum.ThousandsSeparator = true;
             this.nudNum.Value = new decimal(new int[] {
@@ -135,7 +135,7 @@
             this.cmboRepeat.Location = new System.Drawing.Point(159, 70);
             this.cmboRepeat.Name = "cmboRepeat";
             this.cmboRepeat.Size = new System.Drawing.Size(121, 21);
-            this.cmboRepeat.TabIndex = 2;
+            this.cmboRepeat.TabIndex = 3;
             this.cmboRepeat.SelectedIndexChanged += new System.EventHandler(this.cmboRepeat_SelectedIndexChanged);
             // 
             // pnlWeeks
@@ -178,7 +178,7 @@
             this.cbSaturday.Location = new System.Drawing.Point(471, 3);
             this.cbSaturday.Name = "cbSaturday";
             this.cbSaturday.Size = new System.Drawing.Size(68, 17);
-            this.cbSaturday.TabIndex = 5;
+            this.cbSaturday.TabIndex = 12;
             this.cbSaturday.Text = "Saturday";
             this.cbSaturday.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.cbFriday.Location = new System.Drawing.Point(411, 3);
             this.cbFriday.Name = "cbFriday";
             this.cbFriday.Size = new System.Drawing.Size(54, 17);
-            this.cbFriday.TabIndex = 4;
+            this.cbFriday.TabIndex = 11;
             this.cbFriday.Text = "Friday";
             this.cbFriday.UseVisualStyleBackColor = true;
             // 
@@ -198,7 +198,7 @@
             this.cbThursday.Location = new System.Drawing.Point(335, 3);
             this.cbThursday.Name = "cbThursday";
             this.cbThursday.Size = new System.Drawing.Size(70, 17);
-            this.cbThursday.TabIndex = 3;
+            this.cbThursday.TabIndex = 10;
             this.cbThursday.Text = "Thursday";
             this.cbThursday.UseVisualStyleBackColor = true;
             // 
@@ -208,7 +208,7 @@
             this.cbWednesday.Location = new System.Drawing.Point(246, 3);
             this.cbWednesday.Name = "cbWednesday";
             this.cbWednesday.Size = new System.Drawing.Size(83, 17);
-            this.cbWednesday.TabIndex = 2;
+            this.cbWednesday.TabIndex = 9;
             this.cbWednesday.Text = "Wednesday";
             this.cbWednesday.UseVisualStyleBackColor = true;
             // 
@@ -218,7 +218,7 @@
             this.cbTuesday.Location = new System.Drawing.Point(173, 3);
             this.cbTuesday.Name = "cbTuesday";
             this.cbTuesday.Size = new System.Drawing.Size(67, 17);
-            this.cbTuesday.TabIndex = 1;
+            this.cbTuesday.TabIndex = 8;
             this.cbTuesday.Text = "Tuesday";
             this.cbTuesday.UseVisualStyleBackColor = true;
             // 
@@ -228,7 +228,7 @@
             this.cbMonday.Location = new System.Drawing.Point(103, 3);
             this.cbMonday.Name = "cbMonday";
             this.cbMonday.Size = new System.Drawing.Size(64, 17);
-            this.cbMonday.TabIndex = 0;
+            this.cbMonday.TabIndex = 7;
             this.cbMonday.Text = "Monday";
             this.cbMonday.UseVisualStyleBackColor = true;
             // 
@@ -237,7 +237,7 @@
             this.txtName.Location = new System.Drawing.Point(177, 9);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(233, 20);
-            this.txtName.TabIndex = 8;
+            this.txtName.TabIndex = 0;
             // 
             // label4
             // 
@@ -253,20 +253,20 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(446, 365);
+            this.btnCancel.Location = new System.Drawing.Point(446, 358);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 48;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(527, 365);
+            this.btnSave.Location = new System.Drawing.Point(527, 358);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 47;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -326,7 +326,7 @@
             this.cb1.Location = new System.Drawing.Point(3, 26);
             this.cb1.Name = "cb1";
             this.cb1.Size = new System.Drawing.Size(32, 17);
-            this.cb1.TabIndex = 38;
+            this.cb1.TabIndex = 13;
             this.cb1.Text = "1";
             this.cb1.UseVisualStyleBackColor = true;
             // 
@@ -336,7 +336,7 @@
             this.checkBox63.Location = new System.Drawing.Point(41, 26);
             this.checkBox63.Name = "checkBox63";
             this.checkBox63.Size = new System.Drawing.Size(32, 17);
-            this.checkBox63.TabIndex = 39;
+            this.checkBox63.TabIndex = 14;
             this.checkBox63.Text = "2";
             this.checkBox63.UseVisualStyleBackColor = true;
             // 
@@ -346,7 +346,7 @@
             this.checkBox62.Location = new System.Drawing.Point(79, 26);
             this.checkBox62.Name = "checkBox62";
             this.checkBox62.Size = new System.Drawing.Size(32, 17);
-            this.checkBox62.TabIndex = 40;
+            this.checkBox62.TabIndex = 15;
             this.checkBox62.Text = "3";
             this.checkBox62.UseVisualStyleBackColor = true;
             // 
@@ -356,7 +356,7 @@
             this.checkBox61.Location = new System.Drawing.Point(117, 26);
             this.checkBox61.Name = "checkBox61";
             this.checkBox61.Size = new System.Drawing.Size(32, 17);
-            this.checkBox61.TabIndex = 41;
+            this.checkBox61.TabIndex = 16;
             this.checkBox61.Text = "4";
             this.checkBox61.UseVisualStyleBackColor = true;
             // 
@@ -366,7 +366,7 @@
             this.checkBox60.Location = new System.Drawing.Point(155, 26);
             this.checkBox60.Name = "checkBox60";
             this.checkBox60.Size = new System.Drawing.Size(32, 17);
-            this.checkBox60.TabIndex = 42;
+            this.checkBox60.TabIndex = 17;
             this.checkBox60.Text = "5";
             this.checkBox60.UseVisualStyleBackColor = true;
             // 
@@ -629,7 +629,7 @@
             this.checkBox22.Location = new System.Drawing.Point(223, 72);
             this.checkBox22.Name = "checkBox22";
             this.checkBox22.Size = new System.Drawing.Size(38, 17);
-            this.checkBox22.TabIndex = 68;
+            this.checkBox22.TabIndex = 43;
             this.checkBox22.Text = "31";
             this.checkBox22.UseVisualStyleBackColor = true;
             // 
@@ -640,26 +640,26 @@
             this.checkBox21.Location = new System.Drawing.Point(267, 72);
             this.checkBox21.Name = "checkBox21";
             this.checkBox21.Size = new System.Drawing.Size(68, 17);
-            this.checkBox21.TabIndex = 69;
+            this.checkBox21.TabIndex = 44;
             this.checkBox21.Text = "Last Day";
             this.checkBox21.UseVisualStyleBackColor = true;
             // 
             // pnlAmount
             // 
-            this.pnlAmount.Controls.Add(this.txtBasseAmount);
+            this.pnlAmount.Controls.Add(this.txtBaseAmount);
             this.pnlAmount.Controls.Add(this.label7);
             this.pnlAmount.Location = new System.Drawing.Point(3, 165);
             this.pnlAmount.Name = "pnlAmount";
             this.pnlAmount.Size = new System.Drawing.Size(539, 54);
             this.pnlAmount.TabIndex = 13;
             // 
-            // txtBasseAmount
+            // txtBaseAmount
             // 
-            this.txtBasseAmount.Location = new System.Drawing.Point(87, 10);
-            this.txtBasseAmount.Name = "txtBasseAmount";
-            this.txtBasseAmount.Size = new System.Drawing.Size(100, 20);
-            this.txtBasseAmount.TabIndex = 1;
-            this.txtBasseAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBaseAmount.Location = new System.Drawing.Point(87, 10);
+            this.txtBaseAmount.Name = "txtBaseAmount";
+            this.txtBaseAmount.Size = new System.Drawing.Size(100, 20);
+            this.txtBaseAmount.TabIndex = 46;
+            this.txtBaseAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -708,7 +708,7 @@
             this.txtOn.Location = new System.Drawing.Point(30, 1);
             this.txtOn.Name = "txtOn";
             this.txtOn.Size = new System.Drawing.Size(219, 20);
-            this.txtOn.TabIndex = 8;
+            this.txtOn.TabIndex = 45;
             // 
             // label8
             // 
@@ -736,7 +736,7 @@
             this.dtpFrom.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(101, 20);
-            this.dtpFrom.TabIndex = 16;
+            this.dtpFrom.TabIndex = 4;
             // 
             // dtpUntil
             // 
@@ -746,7 +746,7 @@
             this.dtpUntil.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dtpUntil.Name = "dtpUntil";
             this.dtpUntil.Size = new System.Drawing.Size(101, 20);
-            this.dtpUntil.TabIndex = 18;
+            this.dtpUntil.TabIndex = 5;
             // 
             // label6
             // 
@@ -772,7 +772,7 @@
             this.txtTransName.Location = new System.Drawing.Point(177, 35);
             this.txtTransName.Name = "txtTransName";
             this.txtTransName.Size = new System.Drawing.Size(233, 20);
-            this.txtTransName.TabIndex = 19;
+            this.txtTransName.TabIndex = 1;
             // 
             // Recurring
             // 
@@ -780,7 +780,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(616, 400);
+            this.ClientSize = new System.Drawing.Size(616, 393);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtTransName);
             this.Controls.Add(this.dtpUntil);
@@ -866,7 +866,7 @@
         private System.Windows.Forms.Panel pnlAmount;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBasseAmount;
+        private System.Windows.Forms.TextBox txtBaseAmount;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FlowLayoutPanel flpMain;
         private System.Windows.Forms.Label label5;

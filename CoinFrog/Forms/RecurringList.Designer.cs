@@ -45,7 +45,10 @@
             this.colStart,
             this.colEnd,
             this.colAmount});
+            this.lvRecurringTransactions.FullRowSelect = true;
+            this.lvRecurringTransactions.HideSelection = false;
             this.lvRecurringTransactions.Location = new System.Drawing.Point(12, 28);
+            this.lvRecurringTransactions.MultiSelect = false;
             this.lvRecurringTransactions.Name = "lvRecurringTransactions";
             this.lvRecurringTransactions.Size = new System.Drawing.Size(557, 318);
             this.lvRecurringTransactions.TabIndex = 0;
@@ -55,22 +58,22 @@
             // colName
             // 
             this.colName.Text = "Name";
-            this.colName.Width = 239;
+            this.colName.Width = 250;
             // 
             // colStart
             // 
             this.colStart.Text = "Start";
-            this.colStart.Width = 86;
+            this.colStart.Width = 90;
             // 
             // colEnd
             // 
             this.colEnd.Text = "End";
-            this.colEnd.Width = 100;
+            this.colEnd.Width = 90;
             // 
             // colAmount
             // 
             this.colAmount.Text = "Amount";
-            this.colAmount.Width = 125;
+            this.colAmount.Width = 80;
             // 
             // label1
             // 

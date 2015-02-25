@@ -20,12 +20,19 @@ namespace CoinFrog.Forms
 
             Value = rts;
 
-            foreach(var rt in rts)
+            RefreshListView();
+        }
+
+        public void RefreshListView()
+        {
+            lvRecurringTransactions.Items.Clear();
+            foreach (var rt in Value)
             {
                 var item = new ListViewItem(rt.Name);
-                item.SubItems.Add(rt.BaseTransaction.Date.ToString("g"));
-                item.SubItems.Add(rt.Until.ToString("g"));
+                item.SubItems.Add(rt.BaseTransaction.Date.ToString("d"));
+                item.SubItems.Add(rt.Until.ToString("d"));
                 item.SubItems.Add(rt.BaseTransaction.Amount.ToString("c"));
+                lvRecurringTransactions.Items.Add(item);
             }
         }
 
@@ -35,6 +42,7 @@ namespace CoinFrog.Forms
             if(frm.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 Value.Add(frm.Value);
+                RefreshListView();
             }
         }
 

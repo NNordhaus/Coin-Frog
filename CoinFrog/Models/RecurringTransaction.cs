@@ -18,6 +18,13 @@ namespace CoinFrog.Models
         public int ForecastParam { get; set; }
         public decimal ForecastPaddingPct { get; set; }
 
+        public RecurringTransaction()
+        {
+            // Set up some defaults
+            Num = 1;
+            Every = PeriodType.Months;
+        }
+
         public IList<Transaction> GenerateToDate(List<Transaction> previousTransactions, DateTime end)
         {
             if (BaseTransaction.Date >= end)
