@@ -20,6 +20,44 @@ namespace CoinFrog.Models
                 BaseTransaction.RecurrenceName = value;
             }
         }
+        public string RecurringSummary
+        {
+            get
+            {
+                string summary = "Every ";
+                if(Num == 2)
+                {
+                    summary += "other ";
+                }
+                if(Num > 2)
+                {
+                    summary += Num.ToString() + " ";
+                }
+
+                switch(Every)
+                {
+                    case PeriodType.Days:
+                        summary += "Day";
+                        break;
+                    case PeriodType.Weeks:
+                        summary += "Week";
+                        break;
+                    case PeriodType.Months:
+                        summary += "Month";
+                        break;
+                    case PeriodType.Years:
+                        summary += "Year";
+                        break;
+                }
+
+                if (Num > 2)
+                {
+                    summary += "s";
+                }
+
+                return summary;
+            }
+        }
         public Transaction BaseTransaction { get; set; }
         public DateTime Until { get; set; }
         public int Num { get; set; }

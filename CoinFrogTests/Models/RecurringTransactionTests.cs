@@ -222,5 +222,33 @@ namespace CoinFrogTests.Models
                 Assert.Inconclusive();
             }
         }
+
+        [TestClass]
+        public class Summary
+        {
+            [TestMethod]
+            public void Should_correctly_state_Every_day()
+            {
+
+            }
+
+            [TestMethod]
+            public void Should_correctly_state_Once_a_week()
+            {
+
+            }
+
+            [TestMethod]
+            public void Should_correctly_state_Once_a_month()
+            {
+
+            }
+
+            [TestMethod]
+            public void Should_correctly_state_Every_N_days()
+            {
+
+            }
+        }
     }
 }
