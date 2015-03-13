@@ -229,21 +229,38 @@ namespace CoinFrogTests.Models
             [TestMethod]
             public void Should_correctly_state_Every_day()
             {
+                var sut = new RecurringTransaction();
+                sut.Every = PeriodType.Days;
+                sut.Num = 1;
 
+                var actual = sut.RecurringSummary;
+                Assert.AreEqual("Every Day", actual);
             }
 
             [TestMethod]
-            public void Should_correctly_state_Once_a_week()
+            public void Should_correctly_state_Every_Thursday()
+            {
+                var sut = new RecurringTransaction();
+                sut.Every = PeriodType.Weeks;
+                sut.Num = 1;
+                sut.On = new List<int>() { 5 };
+
+                var actual = sut.RecurringSummary;
+                Assert.AreEqual("Every Thursday", actual);
+            }
+
+            [TestMethod]
+            public void Should_correctly_state_1st_of_the_Month()
             {
 
             }
 
             [TestMethod]
-            public void Should_correctly_state_Once_a_month()
+            public void Should_correctly_state_Every_3_Months()
             {
 
             }
-
+            
             [TestMethod]
             public void Should_correctly_state_Every_N_days()
             {
